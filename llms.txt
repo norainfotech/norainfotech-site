@@ -1,0 +1,11 @@
+# Nora Information Technologies
+
+> Kurumsal teknoloji danışmanlığı, sözleşmeli IT uzmanları, uygulama geliştirme ve dijital hizmetler. / Enterprise technology consulting, contract IT specialists, application development and digital services.
+
+- [Danışmanlık / Consulting](https://norainfotech.com/consulting.html): proje yönetimi, ürün, teknoloji dönüşümü, proje kalite güvencesi, yapay zekâ ve süreç otomasyonu
+- [Dış Kaynak / Outsourcing](https://norainfotech.com/outsourcing.html): kurumsal projeler için sözleşmeli IT uzmanları
+- [Uygulama Geliştirme / Application Development](https://norainfotech.com/apps.html): iOS, Android ve web uygulamaları (K1NDAY, NoWord, AI Koçu)
+- [Dijital / Digital](https://norainfotech.com/digital.html): kurumsal web siteleri, sosyal medya yönetimi, reklam filmi
+- [Hakkımızda / About](https://norainfotech.com/about.html)
+
+İletişim / Contact: info@norainfotech.com
