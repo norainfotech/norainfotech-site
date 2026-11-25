@@ -147,7 +147,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </nav>
 </header>
 <main>
-<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal projeler için doğru uzman, doğru zamanda. Hızlı, güvenilir ve esnek dış kaynak desteği.</span><span class="en">The right expert for your enterprise projects, at the right time. Fast, reliable and flexible outsourcing support.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Uygun adayları görün.</span><span class="en">See suitable candidates.</span></div><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=Uzman%20talebi"><span class="tr">İşveren girişi</span><span class="en">Employer sign-in</span></a></div><div class="card txt"><div class="ct"><span class="tr">Uygun ilanları görün.</span><span class="en">See suitable roles.</span></div><button class="btn" type="button" id="open-login"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></button></div></div>
+<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal projeler için doğru uzman, doğru zamanda. Hızlı, güvenilir ve esnek dış kaynak desteği.</span><span class="en">The right expert for your enterprise projects, at the right time. Fast, reliable and flexible outsourcing support.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Uygun adayları görün.</span><span class="en">See suitable candidates.</span></div><button class="btn" type="button" id="open-employer"><span class="tr">İşveren girişi</span><span class="en">Employer sign-in</span></button></div><div class="card txt"><div class="ct"><span class="tr">Uygun ilanları görün.</span><span class="en">See suitable roles.</span></div><button class="btn" type="button" id="open-login"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></button></div></div>
 <div class="note"><p><span class="tr">Genel sorular için:</span><span class="en">For general questions:</span> <a href="mailto:outsourcing@norainfotech.com">outsourcing@norainfotech.com</a></p></div>
 </main>
 <footer>
@@ -182,7 +182,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 })();
 </script>
 <dialog id="ldlg" aria-labelledby="ldlg-h"><div class="in"><button class="x" type="button" id="ldlg-x" aria-label="Close">&times;</button>
-<form id="lf-mail" novalidate><h2 id="ldlg-h"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></h2>
+<form id="lf-mail" novalidate><h2 id="ldlg-h"><span class="tr">Giriş</span><span class="en">Sign in</span></h2>
 <p class="ph"><span class="tr">E-posta adresinizi yazın, size bir giriş kodu gönderelim. İlk kez giriyorsanız aynı adımla kaydınız oluşur.</span><span class="en">Enter your email and we will send you a sign-in code. If this is your first time, the same step creates your account.</span></p>
 <label><span><span class="tr">E-posta</span><span class="en">Email</span></span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
 <button class="btn" type="submit"><span class="tr">Kod gönder</span><span class="en">Send code</span></button><p class="msg" role="status" aria-live="polite"></p></form>
@@ -194,7 +194,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 <script>
 (function(){
  var dlg=document.getElementById('ldlg'),ob=document.getElementById('open-login');if(!dlg||!ob)return;
- var d=document.documentElement,SB='https://fulwkbmmsobyecelmqdj.supabase.co',KEY='sb_publishable_a13BN32K4vLsLhluf2o19w_5hTf50_m',SK='nora-cand',email='';
+ var d=document.documentElement,SB='https://fulwkbmmsobyecelmqdj.supabase.co',KEY='sb_publishable_a13BN32K4vLsLhluf2o19w_5hTf50_m',SK='nora-cand',email='',next='aday.html',eb=document.getElementById('open-employer');
  var T={invalid_fields:['Lütfen geçerli bir e-posta girin.','Please enter a valid email.'],
   rate_limited:['Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.','Too many attempts. Please try again later.'],
   email_not_configured:['Giriş e-postası şu an kullanılamıyor. Lütfen daha sonra tekrar deneyin.','Sign-in email is unavailable right now. Please try again later.'],
@@ -205,10 +205,11 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
  function say(f,k){var m=f.querySelector('.msg'),i=d.getAttribute('lang')==='en'?1:0;m.textContent=k?(T[k]||T.generic)[i]:''}
  function hasSess(){try{var s=JSON.parse(localStorage.getItem(SK));return !!(s&&s.refresh_token)}catch(e){return false}}
  function open(){var fm=document.getElementById('lf-mail'),fc=document.getElementById('lf-code');fm.hidden=false;fc.hidden=true;say(fm,'');say(fc,'');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
- ob.addEventListener('click',function(){if(hasSess()){location.href='aday.html'}else open()});
+ ob.addEventListener('click',function(){next='aday.html';if(hasSess()){location.href=next}else open()});
+ if(eb)eb.addEventListener('click',function(){next='isveren.html';if(hasSess()){location.href=next}else open()});
  document.getElementById('ldlg-x').addEventListener('click',function(){dlg.close()});
  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
- if(/[?&]giris=1/.test(location.search)&&!hasSess())open();
+ if(/[?&]giris=isveren/.test(location.search)){next='isveren.html';if(!hasSess())open()}else if(/[?&]giris=1/.test(location.search)&&!hasSess())open();
  var fm=document.getElementById('lf-mail'),fc=document.getElementById('lf-code');
  fm.addEventListener('submit',function(e){e.preventDefault();var btn=fm.querySelector('button[type=submit]');email=fm.email.value.trim().toLowerCase();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say(fm,'invalid_fields');return}
@@ -222,7 +223,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
   btn.disabled=true;
   function ver(t){return fetch(SB+'/auth/v1/verify',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({type:t,email:email,token:code})}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&!!j.access_token,j:j}})})}
   ver('email').then(function(x){return x.ok?x:ver('magiclink')}).then(function(x){btn.disabled=false;
-   if(x.ok){var j=x.j;try{localStorage.setItem(SK,JSON.stringify({access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600)}))}catch(er){}location.href='aday.html'}
+   if(x.ok){var j=x.j;try{localStorage.setItem(SK,JSON.stringify({access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600)}))}catch(er){}location.href=next}
    else say(fc,'bad_code')})
   .catch(function(){btn.disabled=false;say(fc,'network')})});
 })();

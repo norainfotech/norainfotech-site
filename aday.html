@@ -184,6 +184,14 @@ fieldset.q{border:0;margin:0 0 24px;padding:0}fieldset.q legend{padding:0;margin
 .msg{margin:12px 0 0;font-size:15px;min-height:22px;color:#B3261E}.msg.ok{color:#1B6E3A}
 .sum{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:#F7F9FC;border:1px solid #E6E9EE;border-radius:14px;padding:14px 18px;margin:0 0 22px;font-size:14px;color:#3D4859}
 .sum a{color:#153A72;font-weight:600;cursor:pointer;text-decoration:underline}
+.jsearch{margin:0 0 26px;padding:0 0 22px;border-bottom:1px solid #E6E9EE}
+.jrow{display:flex;gap:10px;flex-wrap:wrap}.jrow input{flex:1;min-width:220px;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px}.jrow .btn{border:0;cursor:pointer;font-family:inherit}.jrow .btn[disabled]{opacity:.6}
+.jb{border:1px solid #E6E9EE;border-radius:14px;padding:18px 20px;margin:12px 0 0;background:#fff}.jb h4{margin:0 0 4px;font-size:18px}.jb .meta{margin:0 0 10px;color:#5B6778;font-size:14px}
+.sc2{float:right;margin-left:12px;font-weight:600;color:#153A72;background:#EEF3FB;border-radius:999px;padding:4px 12px;font-size:14px}
+.src{display:inline-block;font-size:12px;font-weight:600;color:#153A72;background:#EEF3FB;border-radius:6px;padding:2px 8px;margin-right:6px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px;font-size:14px}.cmp b{display:block;margin-bottom:4px;font-size:13px}.cmp .g b{color:#1B6E3A}.cmp .w b{color:#B3261E}
+.cmp span.k{display:inline-block;background:#F3F5F8;border-radius:999px;padding:2px 10px;margin:0 4px 4px 0}
+@media(max-width:700px){.cmp{grid-template-columns:1fr}}
 .role{border:1px solid #E6E9EE;border-radius:14px;padding:22px;margin:0 0 14px;background:#fff;transition:border-color .2s,box-shadow .2s}
 .role:hover{border-color:#B8C2D1;box-shadow:0 8px 24px rgba(14,27,46,.06)}
 .role h3{margin:0 0 6px;font-size:20px;letter-spacing:-0.01em}.role .meta{color:#5B6778;font-size:15px;margin:0 0 12px}
@@ -317,6 +325,10 @@ details.acct .in{padding-top:18px}
 <h2 id="h3s"><span class="tr">Size uygun ilanlar</span><span class="en">Roles suited to you</span></h2>
 <p class="lead"><span class="tr">İlgi bildirmeniz profilinizi müşteriyle paylaştığımız anlamına gelmez; paylaşmadan önce sizden ayrıca açık onay isteriz.</span><span class="en">Showing interest does not mean we share your profile with a client; we ask for your separate explicit consent first.</span></p>
 <div class="sum" id="sum" hidden><span id="sum-t"></span><a id="sum-e"><span class="tr">Tercihleri düzenle</span><span class="en">Edit preferences</span></a></div>
+<div class="jsearch"><h3 style="margin:0 0 6px;font-size:20px"><span class="tr">İlan ara</span><span class="en">Search roles</span></h3>
+<p class="ph"><span class="tr">Profilinize ve tercihlerinize göre Outsourcing ilanlarını ve açık iş ilanlarını tarar; her ilan için güçlü ve eksik yönlerinizi gösterir. Günde 1 arama hakkınız var.</span><span class="en">Searches Outsourcing roles and open job postings based on your profile and preferences, and shows your strengths and gaps for each. You have 1 search per day.</span></p>
+<div class="jrow"><input id="jq" maxlength="80" aria-label="Search" placeholder="Boş bırakırsanız profilinizden aranır / Leave empty to use your profile"><button type="button" class="btn" id="jgo"><span class="tr">Ara</span><span class="en">Search</span></button></div>
+<p class="msg" id="m-js" role="status" aria-live="polite"></p><div id="jres"></div></div>
 <div id="roles"></div><p class="msg" id="m-roles" role="status" aria-live="polite"></p>
 <div id="s-q" hidden><h2 style="font-size:22px;margin:26px 0 6px"><span class="tr">Sorularımız</span><span class="en">Our questions</span></h2><p class="ph"><span class="tr">Sizi doğru fırsatlarla eşleştirmemize yardımcı olur.</span><span class="en">These help us match you with the right opportunities.</span></p><div id="qs"></div></div>
 </section>
@@ -365,6 +377,7 @@ details.acct .in{padding-top:18px}
   network:['Bağlantı hatası. Lütfen tekrar deneyin.','Connection error. Please try again.'],
   generic:['Bir hata oluştu. Lütfen tekrar deneyin.','Something went wrong. Please try again.'],
   saved:['Kaydedildi.','Saved.'],
+  daily_limit:['Bugünkü arama hakkınızı kullandınız. Yarın tekrar arayabilirsiniz.','You have used today\'s search. You can search again tomorrow.'],
   consent_required:['Devam etmek için açık rıza kutusunu işaretleyin.','Please tick the consent box to continue.'],
   file_required:['Lütfen CV dosyanızı ekleyin.','Please attach your CV.'],
   file_too_large:['Dosya 10 MB sınırını aşıyor.','The file is larger than 10 MB.'],
@@ -591,6 +604,22 @@ function syncTrv(){var f=$('f-pref'),d=f.querySelector('input[name=tdom]:checked
      if(st!=='interested')act+='<button type="button" class="btn2" data-r="'+esc(r.id)+'" data-s="interested">'+b('İlgileniyorum','I am interested')+'</button>';
      if(st!=='declined')act+='<button type="button" class="btn2" data-r="'+esc(r.id)+'" data-s="declined">'+b('İlgilenmiyorum','Not interested')+'</button>'}
     return '<div class="role"><h3>'+esc(r.title)+'</h3><p class="meta">'+meta.join(' · ')+'</p>'+(chips?'<div class="chips">'+chips+'</div>':'')+'<div class="acts">'+act+'</div></div>'}).join('')})}
+ function srcName(j){return j.source==='outsourcing'?'Nora Outsourcing':(j.source==='bundesagentur'?'Bundesagentur':'Google Jobs')}
+ function chipsK(a){return a.length?a.map(function(x){return '<span class="k">'+esc(x)+'</span>'}).join(''):'<span class="ph">–</span>'}
+ $('jgo').addEventListener('click',function(){
+  var btn=$('jgo'),q=$('jq').value.trim();btn.disabled=true;say('m-js','');$('jres').innerHTML='<p class="ph">'+b('Aranıyor…','Searching…')+'</p>';
+  ensure().then(function(){return fetch(SB+'/functions/v1/search-jobs',{method:'POST',headers:hdr(),body:JSON.stringify({query:q})})})
+  .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,status:r.status,j:j}})})
+  .then(function(x){btn.disabled=false;
+   if(x.status===429){$('jres').innerHTML='';say('m-js','daily_limit');return}
+   if(!x.ok){$('jres').innerHTML='';say('m-js','generic');return}
+   var jobs=x.j.jobs||[];
+   if(!jobs.length){$('jres').innerHTML='<p class="ph">'+b('Şu an uygun ilan bulunamadı. Tercihlerinizi genişletmeyi deneyin; Outsourcing ekibi de yeni rollerle size ulaşabilir.','No matching roles right now. Try widening your preferences; the Outsourcing team may also reach out with new roles.')+'</p>';return}
+   $('jres').innerHTML=jobs.map(function(j){var meta=[j.company,j.location||j.country].filter(Boolean).map(esc);if(j.remote)meta.push(b('Uzaktan','Remote'));
+    return '<div class="jb"><span class="sc2">'+j.score+'%</span><h4>'+esc(j.title)+'</h4><p class="meta"><span class="src">'+esc(srcName(j))+'</span>'+meta.join(' · ')+'</p>'+
+     '<div class="cmp"><div class="g"><b>'+b('Güçlü yönleriniz','Your strengths')+'</b>'+chipsK(j.strengths||[])+'</div><div class="w"><b>'+b('Eksik / geliştirilebilir','Gaps')+'</b>'+chipsK(j.gaps||[])+'</div></div>'+
+     (j.apply_url?'<a class="btn2" target="_blank" rel="noopener noreferrer" href="'+esc(j.apply_url)+'">'+b('İlana git','Open posting')+'</a>':'<span class="st">'+b('Başvuru için Outsourcing ekibiyle iletişime geçeceğiz','The Outsourcing team will contact you')+'</span>')+'</div>'}).join('')})
+  .catch(function(){btn.disabled=false;$('jres').innerHTML='';say('m-js','network')})});
  $('roles').addEventListener('click',function(e){var t=e.target.closest('button[data-r]');if(!t)return;t.disabled=true;
   rpc('set_my_match',{p_role:t.getAttribute('data-r'),p_status:t.getAttribute('data-s')}).then(function(x){if(x.ok){say('m-roles','saved',true);loadRoles()}else{t.disabled=false;say('m-roles','generic')}})});
  function loadQuestions(){

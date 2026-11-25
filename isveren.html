@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="tr" data-t-tr="İşveren Girişi | Nora Information Technologies" data-t-en="Employer Sign-in | Nora Information Technologies">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>İşveren Girişi | Nora Information Technologies</title>
+<meta name="robots" content="noindex"><meta name="description" content="Nora Outsourcing işveren portalı.">
+<link rel="canonical" href="https://norainfotech.com/isveren.html">
+<link rel="icon" href="img/favicon.png?v=2" type="image/png">
+<meta property="og:title" content="İşveren Girişi | Nora Information Technologies"><meta property="og:description" content="Nora Outsourcing işveren portalı."><meta property="og:type" content="website"><meta property="og:url" content="https://norainfotech.com/isveren.html"><meta property="og:image" content="https://norainfotech.com/img/logo.png">
+<style>
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:#0E1B2E;background:#fff;display:flex;flex-direction:column;min-height:100vh;line-height:1.5}
+a{color:#153A72;text-decoration:none}
+html[lang=en] .tr,html[lang=tr] .en{display:none!important}
+header{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 20px;padding:20px 64px;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.logo{display:block;line-height:0}.logo img{height:30px;width:auto;display:block}
+nav{display:flex;flex-wrap:wrap;align-items:center;gap:8px 32px;font-size:15px}
+.nl{position:relative;color:#0E1B2E;padding:6px 0}
+.nl:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:#153A72;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nl:hover:after,.nl.on:after{transform:scaleX(1)}
+.nl.on{color:#153A72;font-weight:600}
+.tg{position:relative;display:flex;background:#F3F5F8;border-radius:999px;padding:3px;margin-left:8px}
+.tg button{position:relative;z-index:1;border:0;background:none;font:500 13px Inter,system-ui,sans-serif;width:48px;height:34px;border-radius:999px;cursor:pointer;transition:color .25s;color:#0E1B2E}
+.tg button[aria-pressed=true]{color:#fff}
+.tg i{position:absolute;top:3px;left:3px;width:calc(50% - 3px);height:calc(100% - 6px);background:#153A72;border-radius:999px;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+html[lang=en] .tg i{transform:translateX(100%)}
+main{flex:1}
+.head{padding:56px 64px 40px}
+h1{margin:0;font-size:56px;line-height:1.05;letter-spacing:-0.035em;font-weight:600;opacity:0;animation:up .7s ease forwards}
+.sub{margin:20px 0 0;max-width:620px;font-size:20px;line-height:1.55;color:#5B6778;opacity:0;animation:up .7s ease .12s forwards}
+.grid3{padding:0 64px 72px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.grid2{padding:0 64px 48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.home{padding:32px 64px 96px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;max-width:1120px;margin:0 auto}
+.card{display:block;border-radius:24px;overflow:hidden;background:#F3F5F8;color:#0E1B2E;transition:transform .35s ease,box-shadow .35s ease;opacity:0;animation:up .7s ease forwards}
+.card:nth-child(2){animation-delay:.12s}.card:nth-child(3){animation-delay:.24s}.card:nth-child(4){animation-delay:.36s}
+.svc{padding:0 64px 24px}.svc .row2{grid-template-columns:minmax(0,1fr) minmax(0,2fr)}
+.tags{padding:8px 64px 48px;display:flex;flex-wrap:wrap;gap:10px}.tags span.t{padding:8px 16px;border-radius:999px;background:#F3F5F8;color:#153A72;font-weight:600;font-size:15px}
+.h2s{padding:16px 64px 8px;font-size:22px;margin:0}
+.card:hover,.card:focus-visible{transform:translateY(-8px);box-shadow:0 24px 48px rgba(14,27,46,.14)}
+.card .art{display:block;width:100%;height:auto;transition:transform .7s ease}
+.card:hover .art{transform:scale(1.05)}
+.clip{overflow:hidden}
+.cb{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:28px 28px 32px}
+.ct{font-size:32px;font-weight:600;letter-spacing:-0.025em}
+.cd{margin:8px 0 0;font-size:16px;line-height:1.5;color:#5B6778}
+.go{flex:none;width:48px;height:48px;border-radius:50%;background:#153A72;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateX(-12px) scale(.9);transition:opacity .3s ease,transform .3s ease}
+.go svg{stroke:#fff}
+.card:hover .go,.card:focus-visible .go{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;padding:16px 28px;border-radius:999px;background:#153A72;color:#fff;font-weight:500;font-size:16px;transition:background .3s,transform .3s}
+.btn:hover{background:#0E1B2E;transform:translateY(-2px);color:#fff}
+.ic{width:168px;height:168px;border-radius:38px;object-fit:cover;background:#fff;box-shadow:0 10px 28px rgba(14,27,46,.14);transition:transform .5s ease}
+.card:hover .ic{transform:scale(1.06) rotate(-3deg)}
+.stage{height:280px;display:flex;align-items:center;justify-content:center;background:#F3F5F8}
+.apptag{margin-top:6px;font-size:16px;font-weight:500;color:#153A72}
+.apdesc{margin:8px 0 0;font-size:15px;line-height:1.5;color:#5B6778}
+.txt{padding:44px 40px 48px}.txt:hover{transform:none;box-shadow:none}
+.txt .ct{font-size:30px}
+.lines{margin:16px 0 0;font-size:22px;line-height:1.45;color:#5B6778;font-weight:500}
+.txt .btn{margin-top:28px}
+.film{background:#fff;border:1px solid #E6E9EE;padding:0;border-radius:24px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%;opacity:0;animation:up .7s ease forwards;transition:transform .35s ease,box-shadow .35s ease}
+.film:nth-child(2){animation-delay:.12s}.film:nth-child(3){animation-delay:.24s}
+.film:hover,.film:focus-visible{transform:translateY(-8px);box-shadow:0 24px 48px rgba(14,27,46,.14)}
+.vid{position:relative;aspect-ratio:4/5;background:#0E1B2E;overflow:hidden}
+.vid video,.vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vid video{opacity:0;transition:opacity .3s}
+.film:hover .vid video{opacity:1}
+.play{position:absolute;left:50%;top:50%;width:72px;height:72px;margin:-36px 0 0 -36px;border-radius:50%;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;transition:transform .4s ease,opacity .3s}
+.film:hover .play{transform:scale(1.12);opacity:0}
+.fb{padding:20px 24px 24px}.fn{font-size:22px;font-weight:600;letter-spacing:-0.02em}.fnote{margin-top:4px;font-size:15px;color:#5B6778}
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;overflow:visible}
+dialog::backdrop{background:rgba(8,14,26,.82)}
+dialog .box{position:relative}
+dialog video{display:block;max-height:88vh;max-width:92vw;border-radius:16px;background:#000}
+dialog .x{position:absolute;right:-6px;top:-48px;border:0;background:rgba(255,255,255,.16);color:#fff;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer}
+.note{padding:0 64px 96px}.note p{margin:0;font-size:16px;color:#5B6778}.note a{font-weight:500}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr) auto;gap:24px;align-items:center;padding:32px 0;border-top:1px solid #E6E9EE}
+.rows{padding:0 64px 56px}.rows .end{border-top:1px solid #E6E9EE}
+.rt{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:#0E1B2E;transition:color .3s}.rt:hover{color:#153A72}
+.rd{font-size:18px;line-height:1.55;color:#5B6778}
+.prose{padding:0 64px 96px}.prose p{margin:0 0 20px;font-size:18px;line-height:1.7;color:#3D4859;max-width:720px}
+.prose h2{margin:40px 0 12px;font-size:22px;font-weight:600;letter-spacing:-0.01em}
+footer{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between;padding:32px 64px;border-top:1px solid #E6E9EE;font-size:14px;color:#5B6778}
+footer span{display:flex;flex-wrap:wrap;gap:24px}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes pl{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.fl{animation:fl 5s ease-in-out infinite}.fl2{animation:fl 6s ease-in-out -2s infinite}.fl3{animation:fl 4.5s ease-in-out -1s infinite}
+.pl{transform-box:fill-box;transform-origin:center;animation:pl 3.2s ease-in-out infinite}
+:focus-visible{outline:2px solid #153A72;outline-offset:3px}
+@media (max-width:960px){
+ header{padding:16px 24px}.head{padding:40px 24px 28px}h1{font-size:40px}.sub{font-size:18px}
+ .grid3,.grid2{grid-template-columns:1fr;padding:0 24px 40px;gap:24px}.home{padding:16px 24px 64px;display:grid;grid-template-columns:1fr;gap:24px}
+ .note,.prose{padding:0 24px 64px}.svc{padding:0 24px 16px}.svc .row2{grid-template-columns:1fr;gap:8px}.tags{padding:8px 24px 40px}.h2s{padding:16px 24px 8px}.rows{padding:0 24px 40px}.row2{grid-template-columns:1fr;gap:12px}
+ footer{padding:24px}.stage{height:220px}.go{opacity:1;transform:none}
+ nav{gap:8px 20px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card,.film,h1,.sub{opacity:1}}
+.hh{max-width:1120px;margin:0 auto}.sc{padding:0 64px 56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.sc.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sk{position:relative;display:flex;flex-direction:column;gap:10px;padding:32px 28px 32px;background:#fff;border:1px solid #DDE3EC;border-radius:16px;transition:border-color .3s,box-shadow .3s,transform .3s}
+.sk::before,.grid2 .card.txt::before{content:"";position:absolute;left:28px;top:-1px;width:44px;height:3px;background:#153A72;border-radius:0 0 3px 3px}
+.sk:hover,.grid2 .card.txt:hover{border-color:#153A72;box-shadow:0 12px 28px rgba(14,27,46,.08);transform:translateY(-3px)}
+.sk .n{font-size:13px;font-weight:600;letter-spacing:.08em;color:#153A72}.sk .rt{font-size:22px}.sk .rd{font-size:16px;line-height:1.55}
+.grid2 .card.txt{position:relative;background:#fff;border:1px solid #DDE3EC;border-radius:16px}
+.grid3 .card{background:#fff;border:1px solid #DDE3EC;border-radius:16px}.grid3 .card:hover{border-color:#153A72;box-shadow:0 12px 28px rgba(14,27,46,.08);transform:translateY(-3px)}
+@media (max-width:960px){.sc,.sc.c2{padding:0 24px 40px;grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:620px){.sc,.sc.c2{grid-template-columns:1fr}}
+
+.cvs{padding:0 64px 72px;scroll-margin-top:90px}.cvf{max-width:640px;background:#fff;border:1px solid #DDE3EC;border-radius:16px;padding:36px 32px;position:relative}
+.cvf::before{content:"";position:absolute;left:28px;top:-1px;width:44px;height:3px;background:#153A72;border-radius:0 0 3px 3px}
+.cvf h2{margin:0 0 6px;font-size:28px;letter-spacing:-0.02em}.cvf .cvh{margin:0 0 24px;color:#5B6778;font-size:16px}
+.cvf label{display:block;margin:0 0 18px;font-size:14px;font-weight:500;color:#3D4859}
+.cvf label>span:first-child{display:block;margin-bottom:6px}
+.cvf input:not([type=checkbox]):not([type=file]){width:100%;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E;background:#fff}
+.cvf input[type=file]{width:100%;padding:10px;border:1px dashed #B8C2D1;border-radius:10px;font:inherit;font-size:15px;background:#F3F5F8}
+.cvf input:focus-visible{outline:2px solid #153A72;outline-offset:2px}
+.cvf .ck{display:flex;gap:12px;align-items:flex-start;font-weight:400;font-size:14px;line-height:1.5;color:#5B6778}.cvf .ck input{margin-top:3px;width:18px;height:18px;flex:none}
+.cvf .ck a{text-decoration:underline}
+.cvf button.btn{border:0;cursor:pointer;font-family:inherit}.cvf button.btn[disabled]{opacity:.6;cursor:default;transform:none}
+#cv-msg{margin:16px 0 0;font-size:15px;min-height:22px;color:#B3261E}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:960px){.cvs{padding:0 24px 48px}.cvf{padding:28px 20px}}
+
+.pt{max-width:940px;padding:0 64px 72px}
+.pt-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 30px}
+.who{font-size:15px;color:#5B6778}
+.btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;background:#fff;color:#153A72;border:1px solid #153A72;font:500 15px Inter,system-ui,sans-serif;cursor:pointer;transition:background .2s}
+.btn2:hover{background:#EEF3FB}
+.btn3{display:inline-flex;align-items:center;padding:12px 22px;border-radius:999px;background:#fff;color:#B3261E;border:1px solid #B3261E;font:500 15px Inter,system-ui,sans-serif;cursor:pointer}
+.pt .btn{border:0;cursor:pointer;font-family:inherit}.pt .btn[disabled],.pt .btn2[disabled]{opacity:.55;cursor:default}
+.steps{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.steps li{position:relative}
+.steps li+li::before{content:"";position:absolute;top:19px;left:-50%;width:100%;height:2px;background:#DDE3EC}
+.steps li.done::before,.steps li.cur::before{background:#153A72}
+.st-b{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;padding:0;border:0;background:none;font:inherit;cursor:pointer;color:inherit}
+.steps li.lock .st-b{cursor:default}
+.st-c{width:40px;height:40px;border-radius:50%;border:2px solid #DDE3EC;background:#fff;color:#8590A2;display:grid;place-items:center;font-weight:600;font-size:16px;transition:all .25s}
+.steps li.cur .st-c{border-color:#153A72;background:#153A72;color:#fff;box-shadow:0 0 0 6px rgba(21,58,114,.13)}
+.steps li.done .st-c{border-color:#153A72;background:#fff;color:#153A72}
+.st-b:focus-visible .st-c{outline:3px solid #6B93D6;outline-offset:3px}
+.st-l{font-size:15px;font-weight:600;color:#8590A2}.steps li.cur .st-l,.steps li.done .st-l{color:#0E1B2E}
+.st-s{font-size:13px;color:#8590A2;margin-top:-4px}
+.pp{background:#fff;border:1px solid #DDE3EC;border-radius:18px;padding:36px;margin:0 0 22px;position:relative}
+.pp::before{content:"";position:absolute;left:32px;top:-1px;width:44px;height:3px;background:#153A72;border-radius:0 0 3px 3px}
+.pp h2{margin:0 0 6px;font-size:28px;letter-spacing:-0.02em}.pp .lead{margin:0 0 24px;color:#5B6778;font-size:16px;line-height:1.55;max-width:640px}
+.ph{color:#5B6778;font-size:15px;margin:0 0 14px}
+.dz{border:2px dashed #B8C2D1;border-radius:16px;background:#F7F9FC;padding:34px 24px;text-align:center;transition:border-color .2s,background .2s;margin:0 0 14px}
+.dz.drag{border-color:#153A72;background:#EEF3FB}
+.dz .ic{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:#E4ECFA;color:#153A72;display:grid;place-items:center}
+.dz h3{margin:0 0 6px;font-size:20px;letter-spacing:-0.01em}.dz p{margin:0 0 18px;color:#5B6778;font-size:15px}
+.dz .btn{padding:14px 30px;font-size:16px}
+.dz.busy .ic svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.dzbar{height:4px;border-radius:4px;background:#DDE3EC;overflow:hidden;margin:16px auto 0;max-width:280px}.dzbar i{display:block;height:100%;width:40%;background:#153A72;border-radius:4px;animation:slide 1.1s ease-in-out infinite}
+@keyframes slide{0%{margin-left:-40%}100%{margin-left:100%}}
+.chip-file{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border:1px solid #DDE3EC;border-radius:14px;padding:14px 18px;background:#F7F9FC;margin:0 0 14px}
+.chip-file .fn{display:flex;gap:12px;align-items:center;font-size:15px;color:#0E1B2E;font-weight:500;min-width:0}
+.chip-file .fn svg{flex:none;color:#1B6E3A}.chip-file small{display:block;color:#5B6778;font-weight:400;font-size:13px}
+.ck{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:#5B6778;margin:0 0 6px}.ck input{margin-top:3px;width:18px;height:18px;flex:none;accent-color:#153A72}
+.note-ok{display:flex;gap:12px;align-items:flex-start;background:#EEF3FB;border:1px solid #CFDCF2;color:#153A72;border-radius:14px;padding:14px 18px;font-size:15px;line-height:1.5;margin:6px 0 24px}
+.note-ok svg{flex:none;margin-top:2px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}.g2 .full{grid-column:1/-1}
+.pp label.f{display:block;margin:0 0 18px;font-size:14px;font-weight:500;color:#3D4859}
+.f .lb{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.f .ab{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#153A72;background:#E4ECFA;border-radius:999px;padding:2px 8px}
+.pp input[type=text],.pp input[type=email],.pp input[type=number]{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E;background:#fff;transition:border-color .2s,box-shadow .2s}
+.pp input:focus-visible{outline:0;border-color:#153A72;box-shadow:0 0 0 3px rgba(21,58,114,.15)}
+.pp input[readonly]{background:#F3F5F8;color:#5B6778}
+.f.auto input,.f.auto .tags{border-color:#9DB6E0;background:#FAFCFF}
+.tags{display:flex;flex-wrap:wrap;gap:8px;border:1px solid #DDE3EC;border-radius:10px;padding:8px 10px;background:#fff;min-height:50px;align-items:center}
+.tags:focus-within{border-color:#153A72;box-shadow:0 0 0 3px rgba(21,58,114,.15)}
+.tags .tg2{display:inline-flex;align-items:center;gap:6px;background:#EEF3FB;color:#153A72;border-radius:999px;padding:5px 6px 5px 12px;font-size:14px;font-weight:600}
+.tags .tg2 button{border:0;background:none;color:#153A72;font-size:16px;line-height:1;cursor:pointer;padding:0 4px;border-radius:50%}
+.tags input{flex:1;min-width:140px;border:0!important;padding:6px 4px!important;box-shadow:none!important;background:transparent!important}
+.hint{font-size:13px;color:#8590A2;margin:6px 0 0;font-weight:400}
+fieldset.q{border:0;margin:0 0 24px;padding:0}fieldset.q legend{padding:0;margin:0 0 10px;font-size:15px;font-weight:600;color:#0E1B2E}
+.chs{display:flex;flex-wrap:wrap;gap:10px}
+.ch{position:relative}.ch input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.ch>span{display:inline-flex;align-items:center;padding:11px 18px;border:1px solid #DDE3EC;border-radius:999px;background:#fff;font-size:15px;font-weight:500;color:#3D4859;transition:all .15s}
+.ch:hover>span{border-color:#153A72}
+.ch input:checked+span{background:#153A72;border-color:#153A72;color:#fff}
+.ch input:focus-visible+span{outline:3px solid #6B93D6;outline-offset:2px}
+.acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.row-a{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:10px}
+.msg{margin:12px 0 0;font-size:15px;min-height:22px;color:#B3261E}.msg.ok{color:#1B6E3A}
+.sum{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;background:#F7F9FC;border:1px solid #E6E9EE;border-radius:14px;padding:14px 18px;margin:0 0 22px;font-size:14px;color:#3D4859}
+.sum a{color:#153A72;font-weight:600;cursor:pointer;text-decoration:underline}
+.jsearch{margin:0 0 26px;padding:0 0 22px;border-bottom:1px solid #E6E9EE}
+.jrow{display:flex;gap:10px;flex-wrap:wrap}.jrow input{flex:1;min-width:220px;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px}.jrow .btn{border:0;cursor:pointer;font-family:inherit}.jrow .btn[disabled]{opacity:.6}
+.jb{border:1px solid #E6E9EE;border-radius:14px;padding:18px 20px;margin:12px 0 0;background:#fff}.jb h4{margin:0 0 4px;font-size:18px}.jb .meta{margin:0 0 10px;color:#5B6778;font-size:14px}
+.sc2{float:right;margin-left:12px;font-weight:600;color:#153A72;background:#EEF3FB;border-radius:999px;padding:4px 12px;font-size:14px}
+.src{display:inline-block;font-size:12px;font-weight:600;color:#153A72;background:#EEF3FB;border-radius:6px;padding:2px 8px;margin-right:6px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:8px 0 12px;font-size:14px}.cmp b{display:block;margin-bottom:4px;font-size:13px}.cmp .g b{color:#1B6E3A}.cmp .w b{color:#B3261E}
+.cmp span.k{display:inline-block;background:#F3F5F8;border-radius:999px;padding:2px 10px;margin:0 4px 4px 0}
+@media(max-width:700px){.cmp{grid-template-columns:1fr}}
+.role{border:1px solid #E6E9EE;border-radius:14px;padding:22px;margin:0 0 14px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.role:hover{border-color:#B8C2D1;box-shadow:0 8px 24px rgba(14,27,46,.06)}
+.role h3{margin:0 0 6px;font-size:20px;letter-spacing:-0.01em}.role .meta{color:#5B6778;font-size:15px;margin:0 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}.chips span{padding:5px 12px;border-radius:999px;background:#F3F5F8;color:#153A72;font-weight:600;font-size:13px}
+.st{font-size:14px;font-weight:600;color:#1B6E3A}
+.empty{text-align:center;padding:34px 16px;color:#5B6778}.empty .ic{width:64px;height:64px;border-radius:50%;background:#EEF3FB;color:#153A72;display:grid;place-items:center;margin:0 auto 16px}
+.empty h3{margin:0 0 8px;color:#0E1B2E;font-size:20px}.empty p{margin:0 auto 18px;max-width:440px;font-size:15px;line-height:1.55}
+details.acct summary{cursor:pointer;font-weight:600;font-size:16px;color:#0E1B2E;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.acct summary::-webkit-details-marker{display:none}details.acct summary::after{content:"+";font-size:22px;color:#5B6778}details.acct[open] summary::after{content:"–"}
+details.acct .in{padding-top:18px}
+.pp select{padding:13px 12px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E;background:#fff}
+.rate{display:flex;gap:10px;max-width:360px}.rate input{flex:1}
+.btn2.sm{padding:8px 16px;font-size:14px}
+.pcard{border:1px solid #DDE3EC;border-radius:14px;padding:20px 22px;margin:0 0 16px;background:#fff}
+.ph-t{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 12px}.ph-t h3{margin:0;font-size:17px;color:#0E1B2E}
+.pv{font-size:15px;color:#3D4859;line-height:1.7}.pv div{display:flex;gap:10px}.pv b{flex:none;width:150px;color:#5B6778;font-weight:500}
+.acts.warn{background:#FDF1F0;border:1px solid #F0C9C6;border-radius:12px;padding:14px 16px;margin:0 0 12px}
+.lrow select{padding:9px 10px;font-size:15px}
+.pp .hint a{color:inherit}
+@media (max-width:960px){.pv div{flex-direction:column;gap:0}.pv b{width:auto}}
+.ptitle{display:flex;align-items:center;gap:12px;margin:0 0 18px}.ptitle h2{margin:0!important}
+.ic-back{width:40px;height:40px;border-radius:50%;border:1px solid #DDE3EC;background:#fff;color:#153A72;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}.ic-back:hover{background:#EEF3FB}
+.lrow{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;margin:0 0 10px}
+.lrow label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:#5B6778;font-weight:500}
+.lrow select{padding:10px 10px;font-size:15px;min-width:92px}.lrow select.lg{min-width:150px}
+.lrow .rm{width:38px;height:38px;border:0;background:none;color:#8590A2;font-size:22px;cursor:pointer;border-radius:50%}.lrow .rm:hover{background:#F3F5F8;color:#B3261E}
+.tf{display:contents}.tf em{font-style:normal;font-size:14px;color:#5B6778;margin:0 2px 0 10px;align-self:center}
+.pt [hidden]{display:none!important}
+@media (max-width:960px){.pt{padding:0 20px 48px}.pp{padding:24px 20px}.g2{grid-template-columns:1fr}.pp h2{font-size:24px}.st-s{display:none}.st-l{font-size:13px}.dz{padding:26px 16px}}
+.tabs{display:flex;gap:8px;margin:0 0 22px;flex-wrap:wrap}.tabs button{border:1px solid #DDE3EC;background:#fff;border-radius:999px;padding:11px 22px;font:500 15px Inter,system-ui,sans-serif;cursor:pointer;color:#0E1B2E}.tabs button[aria-selected=true]{background:#153A72;color:#fff;border-color:#153A72}
+.pp textarea,.pp select,.pp input:not([type=checkbox]){width:100%;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;background:#fff;color:#0E1B2E}.pp textarea{min-height:130px;resize:vertical}
+.cand{border:1px solid #E6E9EE;border-radius:14px;padding:18px 20px;margin:12px 0 0}.cand h4{margin:0 0 4px;font-size:18px}.cand .meta{color:#5B6778;font-size:14px;margin:0 0 8px}.cand .k{display:inline-block;background:#F3F5F8;border-radius:999px;padding:2px 10px;margin:0 4px 4px 0;font-size:13px}
+.mine{border-top:1px solid #E6E9EE;margin-top:22px;padding-top:6px}.mine .it{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #F0F2F6;font-size:15px}
+.pp .btn{border:0;cursor:pointer;font-family:inherit}.pp .btn[disabled]{opacity:.6}
+.msg{min-height:22px;margin:10px 0 0;font-size:15px;color:#B3261E}.msg.ok{color:#1B6E3A}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.pt-top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:0 0 30px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4100841230947969" crossorigin="anonymous"></script></head>
+<body>
+<header>
+<a class="logo" href="/" aria-label="Nora Information Technologies"><img src="img/logo.png" alt="Nora Information Technologies" width="120" height="30"></a>
+<nav aria-label="Menu">
+<a class="nl" href="consulting.html"><span class="tr">Danışmanlık</span><span class="en">Consulting</span></a>
+<a class="nl on" href="outsourcing.html"><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></a>
+<a class="nl" href="apps.html"><span class="tr">Uygulama Geliştirme</span><span class="en">Application Development</span></a>
+<a class="nl" href="digital.html"><span class="tr">Dijital</span><span class="en">Digital</span></a>
+<a class="nl" href="about.html"><span class="tr">Hakkımızda</span><span class="en">About</span></a>
+<span class="tg" role="group" aria-label="Language"><i></i><button type="button" data-l="tr" aria-pressed="true">TR</button><button type="button" data-l="en" aria-pressed="false">EN</button></span>
+</nav>
+</header>
+<main>
+<div class="head"><h1><span class="tr">İşveren portalı</span><span class="en">Employer portal</span></h1><p class="sub"><span class="tr">İlan ekleyin, Outsourcing havuzunda uygun uzmanları arayın.</span><span class="en">Post a role and search the Outsourcing pool for suitable specialists.</span></p></div>
+<div class="pt" id="p-load"><p class="ph"><span class="tr">Yükleniyor…</span><span class="en">Loading…</span></p></div>
+<div class="pt" id="p-app" hidden>
+<div class="pt-top"><span class="who" id="who"></span><span class="acts"><button type="button" class="btn2" id="logout"><span class="tr">Çıkış</span><span class="en">Sign out</span></button></span></div>
+
+<section class="pp" id="reg" hidden>
+<h2><span class="tr">Şirket bilgileri</span><span class="en">Company details</span></h2>
+<p class="lead"><span class="tr">Hesabınızı Outsourcing ekibi onaylar; onaydan sonra ilan ekleyebilir ve aday arayabilirsiniz.</span><span class="en">The Outsourcing team approves each account; after approval you can post roles and search candidates.</span></p>
+<label class="f"><span><span class="tr">Şirket</span><span class="en">Company</span></span><input id="rc" maxlength="120" autocomplete="organization"></label>
+<label class="f"><span><span class="tr">Yetkili ad soyad</span><span class="en">Contact name</span></span><input id="rn" maxlength="120" autocomplete="name"></label>
+<button type="button" class="btn" id="rgo"><span class="tr">Başvuruyu gönder</span><span class="en">Submit</span></button><p class="msg" id="m-reg" role="status"></p>
+</section>
+
+<section class="pp" id="pend" hidden><h2><span class="tr">Başvurunuz alındı</span><span class="en">Application received</span></h2><p class="lead"><span class="tr">Hesabınız onaylandığında e-posta ile haber vereceğiz. Acil durumda outsourcing@norainfotech.com adresine yazabilirsiniz.</span><span class="en">We will email you once your account is approved. For urgent matters write to outsourcing@norainfotech.com.</span></p></section>
+
+<div id="ok" hidden>
+<div class="tabs" role="tablist"><button type="button" role="tab" id="t1" aria-selected="true"><span class="tr">İlan ekle</span><span class="en">Post a role</span></button><button type="button" role="tab" id="t2" aria-selected="false"><span class="tr">Aday ara</span><span class="en">Find candidates</span></button></div>
+
+<section class="pp" id="s-post">
+<h2><span class="tr">İlan ekle</span><span class="en">Post a role</span></h2>
+<p class="lead"><span class="tr">İlan, giriş yapmış adaylara Outsourcing ilanı olarak gösterilir ve profillerine göre puanlanır. Şirket adınız ilanda görünür.</span><span class="en">The role is shown to signed-in candidates as an Outsourcing role and scored against their profiles. Your company name is shown.</span></p>
+<label class="f"><span><span class="tr">Başlık</span><span class="en">Title</span></span><input id="pt" maxlength="160" placeholder="SAP S/4HANA FI Consultant"></label>
+<div class="g2"><label class="f"><span><span class="tr">Çalışma şekli</span><span class="en">Engagement</span></span><select id="pk"><option value="contract">Sözleşmeli / Contract</option><option value="permanent">Kadrolu / Permanent</option><option value="any">Fark etmez / Either</option></select></label>
+<label class="f"><span><span class="tr">Ülke</span><span class="en">Country</span></span><select id="pc"><option value="TR">Türkiye</option><option value="DE">Almanya / Germany</option><option value="NL">Hollanda / Netherlands</option><option value="GB">Birleşik Krallık / UK</option><option value="CH">İsviçre / Switzerland</option><option value="AT">Avusturya / Austria</option><option value="FR">Fransa / France</option><option value="BE">Belçika / Belgium</option><option value="AE">BAE / UAE</option><option value="SA">Suudi Arabistan / Saudi Arabia</option><option value="US">ABD / USA</option><option value="CA">Kanada / Canada</option></select></label>
+<label class="f"><span><span class="tr">Şehir</span><span class="en">City</span></span><input id="pl" maxlength="120"></label>
+<label class="f"><span><span class="tr">Çalışma yeri</span><span class="en">Work location</span></span><select id="pr"><option value="false">Yerinde / On-site</option><option value="true">Uzaktan / Remote</option></select></label></div>
+<label class="f"><span><span class="tr">Gerekli beceriler (virgülle)</span><span class="en">Required skills (comma separated)</span></span><input id="ps" maxlength="300" placeholder="SAP, S/4HANA, FI, Fiori"></label>
+<label class="f"><span><span class="tr">Açıklama</span><span class="en">Description</span></span><textarea id="pd" maxlength="6000"></textarea></label>
+<button type="button" class="btn" id="pgo"><span class="tr">İlanı yayınla</span><span class="en">Publish</span></button><p class="msg" id="m-post" role="status"></p>
+<div class="mine"><h3 style="margin:14px 0 4px;font-size:18px"><span class="tr">İlanlarım</span><span class="en">My roles</span></h3><div id="mine"></div></div>
+</section>
+
+<section class="pp" id="s-find" hidden>
+<h2><span class="tr">Aday ara</span><span class="en">Find candidates</span></h2>
+<p class="lead"><span class="tr">Adaylar anonim gösterilir; ad ve iletişim bilgisi yer almaz. İletişim isteği gönderirsiniz, aday kabul ederse Outsourcing ekibi sizi onunla buluşturur. Yalnızca açık rıza vermiş adaylar listelenir.</span><span class="en">Candidates are shown anonymously, without name or contact details. You send a contact request and, if the candidate accepts, the Outsourcing team connects you. Only candidates who gave explicit consent are listed.</span></p>
+<div class="g2"><label class="f full"><span><span class="tr">Beceriler (virgülle)</span><span class="en">Skills (comma separated)</span></span><input id="fs" maxlength="200" placeholder="SAP, FI, Salesforce"></label>
+<label class="f"><span><span class="tr">Ülke (tercih edilen)</span><span class="en">Country (preferred)</span></span><select id="fc"><option value="">—</option><option value="TR">Türkiye</option><option value="DE">Almanya / Germany</option><option value="NL">Hollanda / Netherlands</option><option value="GB">Birleşik Krallık / UK</option><option value="CH">İsviçre / Switzerland</option><option value="AT">Avusturya / Austria</option><option value="FR">Fransa / France</option><option value="BE">Belçika / Belgium</option><option value="AE">BAE / UAE</option><option value="SA">Suudi Arabistan / Saudi Arabia</option><option value="US">ABD / USA</option><option value="CA">Kanada / Canada</option></select></label>
+<label class="f"><span><span class="tr">En az deneyim (yıl)</span><span class="en">Min. experience (years)</span></span><input id="fy" type="number" min="0" max="40" value="0"></label></div>
+<button type="button" class="btn" id="fgo"><span class="tr">Ara</span><span class="en">Search</span></button><p class="msg" id="m-find" role="status"></p><div id="fres"></div>
+</section>
+</div>
+</div>
+</main>
+<footer>
+<span>© 2026 Nora Information Technologies</span>
+<span><a href="mailto:info@norainfotech.com">info@norainfotech.com</a><a href="https://www.linkedin.com/company/90882284/" target="_blank" rel="noopener">LinkedIn</a><a href="privacy.html"><span class="tr">Gizlilik Politikası</span><span class="en">Privacy Policy</span></a></span>
+</footer>
+<script>
+(function(){
+ var d=document.documentElement,K='nora-lang',l=null;
+ try{l=localStorage.getItem(K)}catch(e){}
+ if(l!=='tr'&&l!=='en'){l=((navigator.language||'tr').toLowerCase().indexOf('tr')===0)?'tr':'en'}
+ function set(v,save){d.setAttribute('lang',v);[].forEach.call(document.querySelectorAll('.tg button'),function(x){x.setAttribute('aria-pressed',x.getAttribute('data-l')===v)});var t=d.getAttribute('data-t-'+v);if(t)document.title=t;if(save){try{localStorage.setItem(K,v)}catch(e){}}}
+ set(l,false);
+ [].forEach.call(document.querySelectorAll('.tg button'),function(x){x.addEventListener('click',function(){set(x.getAttribute('data-l'),true)})});
+ var SB='https://fulwkbmmsobyecelmqdj.supabase.co',KEY='sb_publishable_a13BN32K4vLsLhluf2o19w_5hTf50_m',SK='nora-cand';
+ function $(i){return document.getElementById(i)}
+ function L(){return d.getAttribute('lang')==='en'?1:0}
+ function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+ function b(tr,en){return '<span class="tr">'+esc(tr)+'</span><span class="en">'+esc(en)+'</span>'}
+ var T={invalid_fields:['Lütfen zorunlu alanları doldurun (başlık en az 3 karakter).','Please fill in the required fields (title at least 3 characters).'],
+  employer_not_approved:['Hesabınız henüz onaylanmadı.','Your account is not approved yet.'],
+  network:['Bağlantı hatası. Lütfen tekrar deneyin.','Connection error. Please try again.'],
+  generic:['Bir hata oluştu. Lütfen tekrar deneyin.','Something went wrong. Please try again.'],
+  saved:['Kaydedildi.','Saved.'],sent:['İletişim isteği gönderildi.','Contact request sent.'],none:['Uygun aday bulunamadı. Becerileri azaltmayı deneyin.','No matching candidates. Try fewer skills.']};
+ function tx(k){var v=T[k]||T.generic;return v[L()]}
+ function say(id,k,ok){var e=$(id);e.className='msg'+(ok?' ok':'');e.textContent=k?tx(k):''}
+ var sess=null,emp=null;try{sess=JSON.parse(localStorage.getItem(SK))}catch(e){}
+ function save(s){sess=s;try{if(s)localStorage.setItem(SK,JSON.stringify(s));else localStorage.removeItem(SK)}catch(e){}}
+ function mk(j){return {access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600)}}
+ function hdr(){var h={apikey:KEY,'Content-Type':'application/json'};if(sess)h.Authorization='Bearer '+sess.access_token;return h}
+ function ensure(){if(sess&&sess.refresh_token&&sess.expires_at-Date.now()/1000<60){return fetch(SB+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:sess.refresh_token})}).then(function(r){return r.json()}).then(function(j){save(j.access_token?mk(j):null)}).catch(function(){})}return Promise.resolve()}
+ function api(path,opt){return ensure().then(function(){opt.headers=hdr();return fetch(SB+path,opt)}).then(function(r){return r.text().then(function(t){var j=null;try{j=t?JSON.parse(t):null}catch(e){}return {ok:r.ok,status:r.status,j:j}})})}
+ function rpc(n,a){return api('/rest/v1/rpc/'+n,{method:'POST',body:JSON.stringify(a||{})})}
+ function get(p){return api('/rest/v1/'+p,{method:'GET'})}
+ function err(x){var m=x.j&&(x.j.message||'');return T[m]?m:'generic'}
+ function toLogin(){location.replace('outsourcing.html?giris=isveren')}
+ function mail(){try{var p=sess.access_token.split('.')[1].replace(/-/g,'+').replace(/_/g,'/');return JSON.parse(atob(p)).email||''}catch(e){return ''}}
+ function list(v){return String(v||'').split(',').map(function(x){return x.trim()}).filter(Boolean).slice(0,25)}
+ function view(){
+  $('p-load').hidden=true;$('p-app').hidden=false;$('who').textContent=mail();
+  $('reg').hidden=!!emp;$('pend').hidden=!(emp&&emp.status==='pending');$('ok').hidden=!(emp&&emp.status==='approved');
+  if(emp&&emp.status==='rejected'){$('pend').hidden=false}
+  if(emp&&emp.status==='approved')loadMine()}
+ function load(){if(!sess){toLogin();return}
+  get('employers?select=id,company,status').then(function(x){
+   if(x.status===401||x.status===403){save(null);toLogin();return}
+   emp=(x.j&&x.j[0])||null;view()}).catch(function(){$('p-load').innerHTML='<p class="ph">'+tx('network')+'</p>'})}
+ $('rgo').addEventListener('click',function(){var c=$('rc').value.trim(),n=$('rn').value.trim();
+  if(c.length<2||n.length<2){say('m-reg','invalid_fields');return}
+  $('rgo').disabled=true;rpc('employer_register',{p_company:c,p_name:n}).then(function(x){$('rgo').disabled=false;if(x.ok)load();else say('m-reg',err(x))})});
+ function tab(n){$('t1').setAttribute('aria-selected',n===1);$('t2').setAttribute('aria-selected',n===2);$('s-post').hidden=n!==1;$('s-find').hidden=n!==2}
+ $('t1').addEventListener('click',function(){tab(1)});$('t2').addEventListener('click',function(){tab(2)});
+ $('pgo').addEventListener('click',function(){var t=$('pt').value.trim();if(t.length<3){say('m-post','invalid_fields');return}
+  $('pgo').disabled=true;
+  rpc('employer_post_job',{p:{title:t,kind:$('pk').value,country:$('pc').value,location:$('pl').value.trim(),remote:$('pr').value==='true',skills:list($('ps').value),description:$('pd').value.trim()}})
+  .then(function(x){$('pgo').disabled=false;if(x.ok){say('m-post','saved',true);['pt','pl','ps','pd'].forEach(function(i){$(i).value=''});loadMine()}else say('m-post',err(x))})});
+ function loadMine(){get('job_posts?select=id,title,status,posted_at&order=posted_at.desc').then(function(x){
+  var r=(x.j||[]).filter(function(j){return j.status==='open'});
+  $('mine').innerHTML=r.length?r.map(function(j){return '<div class="it"><span>'+esc(j.title)+'</span><button type="button" class="btn2" data-c="'+esc(j.id)+'">'+b('Kapat','Close')+'</button></div>'}).join(''):'<p class="ph">'+b('Henüz ilanınız yok.','No roles yet.')+'</p>'})}
+ $('mine').addEventListener('click',function(e){var t=e.target.closest('button[data-c]');if(!t)return;t.disabled=true;rpc('employer_close_job',{p_id:t.getAttribute('data-c')}).then(loadMine)});
+ var LV={A:['Ortak','Shared'],contract:['Sözleşmeli','Contract'],permanent:['Kadrolu','Permanent'],any:['Fark etmez','Either']};
+ $('fgo').addEventListener('click',function(){$('fgo').disabled=true;say('m-find','');
+  rpc('employer_search_candidates',{p_skills:list($('fs').value),p_country:$('fc').value||null,p_min_years:parseInt($('fy').value,10)||0}).then(function(x){
+   $('fgo').disabled=false;if(!x.ok){say('m-find',err(x));return}
+   var r=x.j||[];if(!r.length){$('fres').innerHTML='';say('m-find','none');return}
+   $('fres').innerHTML=r.map(function(c){var k=LV[c.kind]||null;
+    return '<div class="cand"><h4>'+esc(c.headline||'—')+' <small style="color:#5B6778;font-weight:400">#'+esc(c.ref)+'</small></h4><p class="meta">'+(c.years_experience!=null?esc(c.years_experience)+' '+b('yıl deneyim','yrs experience'):'')+(k?' · '+b(k[0],k[1]):'')+(c.availability?' · '+esc(String(c.availability).replace(/_/g,' ')):'')+'</p>'+
+     '<div>'+(c.skills||[]).slice(0,14).map(function(s){return '<span class="k">'+esc(s)+'</span>'}).join('')+'</div>'+
+     '<div class="acts" style="margin-top:10px"><button type="button" class="btn2" data-cid="'+esc(c.cid)+'">'+b('İletişim isteği gönder','Send contact request')+'</button></div></div>'}).join('')})});
+ $('fres').addEventListener('click',function(e){var t=e.target.closest('button[data-cid]');if(!t)return;t.disabled=true;
+  rpc('employer_request_contact',{p_candidate:t.getAttribute('data-cid')}).then(function(x){if(x.ok){t.outerHTML='<span class="st">'+b('İstek gönderildi ✓','Request sent ✓')+'</span>'}else{t.disabled=false;say('m-find',err(x))}})});
+ $('logout').addEventListener('click',function(){save(null);location.href='outsourcing.html'});
+ load();
+})();
+</script>
+</body>
+</html>
