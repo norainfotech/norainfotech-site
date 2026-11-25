@@ -121,7 +121,19 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 .btn2{display:inline-flex;align-items:center;padding:15px 24px;border-radius:999px;background:#fff;color:#153A72;border:1px solid #153A72;font-weight:500;font-size:16px;transition:background .3s}.btn2:hover{background:#F3F5F8}.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 @media (max-width:960px){.cvs{padding:0 24px 48px}.cvf{padding:28px 20px}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4100841230947969" crossorigin="anonymous"></script></head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4100841230947969" crossorigin="anonymous"></script><style>
+#ldlg{border:0;border-radius:16px;padding:0;max-width:420px;width:calc(100% - 32px);box-shadow:0 24px 80px rgba(14,27,46,.35)}
+#ldlg::backdrop{background:rgba(14,27,46,.55)}
+#ldlg .in{padding:32px;position:relative}
+#ldlg h2{margin:0 0 6px;font-size:24px;letter-spacing:-0.02em}#ldlg .ph{margin:0 0 20px;color:#5B6778;font-size:15px}
+#ldlg label{display:block;margin:0 0 16px;font-size:14px;font-weight:500;color:#3D4859}#ldlg label>span{display:block;margin-bottom:6px}
+#ldlg input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E}
+#ldlg .btn{border:0;cursor:pointer;font-family:inherit}#ldlg .btn[disabled]{opacity:.6;cursor:default}
+#ldlg .x{position:absolute;right:14px;top:10px;border:0;background:none;font-size:26px;line-height:1;color:#5B6778;cursor:pointer}
+#ldlg .msg{margin:14px 0 0;font-size:15px;min-height:22px;color:#B3261E}
+#ldlg [hidden]{display:none!important}
+</style>
+</head>
 <body>
 <header>
 <a class="logo" href="/" aria-label="Nora Information Technologies"><img src="img/logo.png" alt="Nora Information Technologies" width="120" height="30"></a>
@@ -135,7 +147,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </nav>
 </header>
 <main>
-<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal teknoloji projeleri için danışmanlık desteği, dış kaynak tedariği, mobil uygulama geliştirme ve dijital hizmetler.</span><span class="en">Consulting, outsourcing, mobile application development and digital services for enterprise technology projects.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Kurumlar için</span><span class="en">For organisations</span></div><p class="lines"><span class="tr">Sözleşmeli IT uzmanı talebi.</span><span class="en">Requests for contract IT specialists.</span></p><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=Uzman%20talebi"><span class="tr">Uzman talebi gönder</span><span class="en">Request a specialist</span></a></div><div class="card txt"><div class="ct"><span class="tr">Danışmanlar için</span><span class="en">For consultants</span></div><p class="lines"><span class="tr">Aday portalı: bilgilerinizi ve CV'nizi yükleyin, size uygun rolleri görün.</span><span class="en">Candidate portal: add your details and CV and see the roles that suit you.</span></p><a class="btn" href="aday.html"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></a></div></div>
+<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal teknoloji projeleri için danışmanlık desteği, dış kaynak tedariği, mobil uygulama geliştirme ve dijital hizmetler.</span><span class="en">Consulting, outsourcing, mobile application development and digital services for enterprise technology projects.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Kurumlar için</span><span class="en">For organisations</span></div><p class="lines"><span class="tr">Sözleşmeli IT uzmanı talebi.</span><span class="en">Requests for contract IT specialists.</span></p><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=Uzman%20talebi"><span class="tr">Uzman talebi gönder</span><span class="en">Request a specialist</span></a></div><div class="card txt"><div class="ct"><span class="tr">Danışmanlar için</span><span class="en">For consultants</span></div><p class="lines"><span class="tr">Aday portalı: bilgilerinizi ve CV'nizi yükleyin, size uygun rolleri görün.</span><span class="en">Candidate portal: add your details and CV and see the roles that suit you.</span></p><button class="btn" type="button" id="open-login"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></button></div></div>
 <div class="note"><p><span class="tr">Genel sorular için:</span><span class="en">For general questions:</span> <a href="mailto:outsourcing@norainfotech.com">outsourcing@norainfotech.com</a></p></div>
 </main>
 <footer>
@@ -167,6 +179,52 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
   dlg.querySelector('.x').addEventListener('click',close);
   dlg.addEventListener('click',function(e){if(e.target===dlg)close()});
   dlg.addEventListener('close',function(){v.pause();v.removeAttribute('src');v.load()});}
+})();
+</script>
+<dialog id="ldlg" aria-labelledby="ldlg-h"><div class="in"><button class="x" type="button" id="ldlg-x" aria-label="Close">&times;</button>
+<form id="lf-mail" novalidate><h2 id="ldlg-h"><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></h2>
+<p class="ph"><span class="tr">E-posta adresinizi yazın, size bir giriş kodu gönderelim. İlk kez giriyorsanız aynı adımla kaydınız oluşur.</span><span class="en">Enter your email and we will send you a sign-in code. If this is your first time, the same step creates your account.</span></p>
+<label><span><span class="tr">E-posta</span><span class="en">Email</span></span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
+<button class="btn" type="submit"><span class="tr">Kod gönder</span><span class="en">Send code</span></button><p class="msg" role="status" aria-live="polite"></p></form>
+<form id="lf-code" hidden novalidate><h2><span class="tr">Kodu girin</span><span class="en">Enter the code</span></h2>
+<p class="ph"><span class="tr">Kod e-postanıza gönderildi. Birkaç dakika içinde gelmezse gereksiz klasörüne de bakın.</span><span class="en">A code was sent to your email. Check your spam folder if it does not arrive in a few minutes.</span></p>
+<label><span><span class="tr">Giriş kodu</span><span class="en">Sign-in code</span></span><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required></label>
+<button class="btn" type="submit"><span class="tr">Giriş yap</span><span class="en">Sign in</span></button><p class="msg" role="status" aria-live="polite"></p></form>
+</div></dialog>
+<script>
+(function(){
+ var dlg=document.getElementById('ldlg'),ob=document.getElementById('open-login');if(!dlg||!ob)return;
+ var d=document.documentElement,SB='https://fulwkbmmsobyecelmqdj.supabase.co',KEY='sb_publishable_a13BN32K4vLsLhluf2o19w_5hTf50_m',SK='nora-cand',email='';
+ var T={invalid_fields:['Lütfen geçerli bir e-posta girin.','Please enter a valid email.'],
+  rate_limited:['Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.','Too many attempts. Please try again later.'],
+  email_not_configured:['Giriş e-postası şu an kullanılamıyor. Lütfen daha sonra tekrar deneyin.','Sign-in email is unavailable right now. Please try again later.'],
+  email_send_failed:['E-posta gönderilemedi. Lütfen daha sonra tekrar deneyin.','Could not send the email. Please try again later.'],
+  bad_code:['Kod hatalı ya da süresi dolmuş. Yeni kod isteyin.','The code is wrong or expired. Request a new one.'],
+  network:['Bağlantı hatası. Lütfen tekrar deneyin.','Connection error. Please try again.'],
+  generic:['Bir hata oluştu. Lütfen tekrar deneyin.','Something went wrong. Please try again.']};
+ function say(f,k){var m=f.querySelector('.msg'),i=d.getAttribute('lang')==='en'?1:0;m.textContent=k?(T[k]||T.generic)[i]:''}
+ function hasSess(){try{var s=JSON.parse(localStorage.getItem(SK));return !!(s&&s.refresh_token)}catch(e){return false}}
+ function open(){var fm=document.getElementById('lf-mail'),fc=document.getElementById('lf-code');fm.hidden=false;fc.hidden=true;say(fm,'');say(fc,'');if(dlg.showModal)dlg.showModal();else dlg.setAttribute('open','')}
+ ob.addEventListener('click',function(){if(hasSess()){location.href='aday.html'}else open()});
+ document.getElementById('ldlg-x').addEventListener('click',function(){dlg.close()});
+ dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+ if(/[?&]giris=1/.test(location.search)&&!hasSess())open();
+ var fm=document.getElementById('lf-mail'),fc=document.getElementById('lf-code');
+ fm.addEventListener('submit',function(e){e.preventDefault();var btn=fm.querySelector('button[type=submit]');email=fm.email.value.trim().toLowerCase();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){say(fm,'invalid_fields');return}
+  btn.disabled=true;
+  fetch(SB+'/functions/v1/request-login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,lang:d.getAttribute('lang')==='en'?'en':'tr'})})
+   .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
+   .then(function(x){btn.disabled=false;if(x.ok){fm.hidden=true;fc.hidden=false;fc.code.focus()}else say(fm,x.j&&x.j.error)})
+   .catch(function(){btn.disabled=false;say(fm,'network')})});
+ fc.addEventListener('submit',function(e){e.preventDefault();var btn=fc.querySelector('button[type=submit]'),code=fc.code.value.replace(/\s/g,'');
+  if(!/^\d{6,10}$/.test(code)){say(fc,'bad_code');return}
+  btn.disabled=true;
+  function ver(t){return fetch(SB+'/auth/v1/verify',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({type:t,email:email,token:code})}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&!!j.access_token,j:j}})})}
+  ver('email').then(function(x){return x.ok?x:ver('magiclink')}).then(function(x){btn.disabled=false;
+   if(x.ok){var j=x.j;try{localStorage.setItem(SK,JSON.stringify({access_token:j.access_token,refresh_token:j.refresh_token,expires_at:j.expires_at||Math.floor(Date.now()/1000)+(j.expires_in||3600)}))}catch(er){}location.href='aday.html'}
+   else say(fc,'bad_code')})
+  .catch(function(){btn.disabled=false;say(fc,'network')})});
 })();
 </script>
 </body>
