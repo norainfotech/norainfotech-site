@@ -105,6 +105,21 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 .grid2 .card.txt{position:relative;background:#fff;border:1px solid #DDE3EC;border-radius:16px}
 .grid3 .card{background:#fff;border:1px solid #DDE3EC;border-radius:16px}.grid3 .card:hover{border-color:#153A72;box-shadow:0 12px 28px rgba(14,27,46,.08);transform:translateY(-3px)}
 @media (max-width:960px){.sc,.sc.c2{padding:0 24px 40px;grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:620px){.sc,.sc.c2{grid-template-columns:1fr}}
+
+.cvs{padding:0 64px 72px;scroll-margin-top:90px}.cvf{max-width:640px;background:#fff;border:1px solid #DDE3EC;border-radius:16px;padding:36px 32px;position:relative}
+.cvf::before{content:"";position:absolute;left:28px;top:-1px;width:44px;height:3px;background:#153A72;border-radius:0 0 3px 3px}
+.cvf h2{margin:0 0 6px;font-size:28px;letter-spacing:-0.02em}.cvf .cvh{margin:0 0 24px;color:#5B6778;font-size:16px}
+.cvf label{display:block;margin:0 0 18px;font-size:14px;font-weight:500;color:#3D4859}
+.cvf label>span:first-child{display:block;margin-bottom:6px}
+.cvf input:not([type=checkbox]):not([type=file]){width:100%;padding:13px 14px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E;background:#fff}
+.cvf input[type=file]{width:100%;padding:10px;border:1px dashed #B8C2D1;border-radius:10px;font:inherit;font-size:15px;background:#F3F5F8}
+.cvf input:focus-visible{outline:2px solid #153A72;outline-offset:2px}
+.cvf .ck{display:flex;gap:12px;align-items:flex-start;font-weight:400;font-size:14px;line-height:1.5;color:#5B6778}.cvf .ck input{margin-top:3px;width:18px;height:18px;flex:none}
+.cvf .ck a{text-decoration:underline}
+.cvf button.btn{border:0;cursor:pointer;font-family:inherit}.cvf button.btn[disabled]{opacity:.6;cursor:default;transform:none}
+#cv-msg{margin:16px 0 0;font-size:15px;min-height:22px;color:#B3261E}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:960px){.cvs{padding:0 24px 48px}.cvf{padding:28px 20px}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4100841230947969" crossorigin="anonymous"></script></head>
 <body>
@@ -120,7 +135,20 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </nav>
 </header>
 <main>
-<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal teknoloji projeleri için danışmanlık desteği, dış kaynak tedariği, mobil uygulama geliştirme ve dijital hizmetler.</span><span class="en">Consulting, outsourcing, mobile application development and digital services for enterprise technology projects.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Kurumlar için</span><span class="en">For organisations</span></div><p class="lines"><span class="tr">Sözleşmeli IT uzmanı talebi.</span><span class="en">Requests for contract IT specialists.</span></p><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=Uzman%20talebi"><span class="tr">Uzman talebi gönder</span><span class="en">Request a specialist</span></a></div><div class="card txt"><div class="ct"><span class="tr">Danışmanlar için</span><span class="en">For consultants</span></div><p class="lines"><span class="tr">Açık projeler için özgeçmiş paylaşımı.</span><span class="en">CV submissions for open projects.</span></p><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=CV"><span class="tr">Özgeçmiş paylaş</span><span class="en">Share your CV</span></a></div></div><div class="note"><p><span class="tr">Genel sorular için:</span><span class="en">For general questions:</span> <a href="mailto:outsourcing@norainfotech.com">outsourcing@norainfotech.com</a></p></div>
+<div class="head"><h1><span class="tr">Dış Kaynak</span><span class="en">Outsourcing</span></h1><p class="sub"><span class="tr">Kurumsal teknoloji projeleri için danışmanlık desteği, dış kaynak tedariği, mobil uygulama geliştirme ve dijital hizmetler.</span><span class="en">Consulting, outsourcing, mobile application development and digital services for enterprise technology projects.</span></p></div><div class="grid2"><div class="card txt"><div class="ct"><span class="tr">Kurumlar için</span><span class="en">For organisations</span></div><p class="lines"><span class="tr">Sözleşmeli IT uzmanı talebi.</span><span class="en">Requests for contract IT specialists.</span></p><a class="btn" href="mailto:outsourcing@norainfotech.com?subject=Uzman%20talebi"><span class="tr">Uzman talebi gönder</span><span class="en">Request a specialist</span></a></div><div class="card txt"><div class="ct"><span class="tr">Danışmanlar için</span><span class="en">For consultants</span></div><p class="lines"><span class="tr">Açık projeler için özgeçmiş paylaşımı.</span><span class="en">CV submissions for open projects.</span></p><a class="btn" href="#cv"><span class="tr">Özgeçmiş paylaş</span><span class="en">Share your CV</span></a></div></div><section class="cvs" id="cv"><form class="cvf" id="cv-form" novalidate>
+<h2><span class="tr">Özgeçmişinizi paylaşın</span><span class="en">Share your CV</span></h2>
+<p class="cvh"><span class="tr">Uygun bir proje çıktığında sizinle iletişime geçeriz.</span><span class="en">We will contact you when a suitable project comes up.</span></p>
+<label><span><span class="tr">Ad soyad</span><span class="en">Full name</span></span><input name="full_name" required maxlength="120" autocomplete="name"></label>
+<label><span><span class="tr">E-posta</span><span class="en">Email</span></span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
+<label><span><span class="tr">Telefon (opsiyonel)</span><span class="en">Phone (optional)</span></span><input name="phone" maxlength="40" autocomplete="tel"></label>
+<label><span><span class="tr">Ülke</span><span class="en">Country</span></span><input name="country" maxlength="80" autocomplete="country-name"></label>
+<label><span><span class="tr">CV (PDF/DOC/DOCX, en çok 10 MB)</span><span class="en">CV (PDF/DOC/DOCX, max 10 MB)</span></span><input name="cv" type="file" accept=".pdf,.doc,.docx" required></label>
+<div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="ck"><input name="consent" type="checkbox" required><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine ve 12 ay saklanmasına açık rıza veriyorum. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed and kept in the candidate pool for 12 months. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
+<button class="btn" type="submit"><span class="tr">Gönder</span><span class="en">Submit</span></button>
+<p id="cv-msg" role="status" aria-live="polite"></p>
+</form></section>
+<div class="note"><p><span class="tr">Genel sorular için:</span><span class="en">For general questions:</span> <a href="mailto:outsourcing@norainfotech.com">outsourcing@norainfotech.com</a></p></div>
 </main>
 <footer>
 <span>© 2026 Nora Information Technologies</span>
@@ -138,6 +166,32 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
   if(save){try{localStorage.setItem(K,v)}catch(e){}}}
  set(l,false);
  [].forEach.call(document.querySelectorAll('.tg button'),function(x){x.addEventListener('click',function(){set(x.getAttribute('data-l'),true)})});
+
+ var f=document.getElementById('cv-form');
+ if(f){var M={
+  invalid_fields:['Lütfen ad soyad ve geçerli bir e-posta girin.','Please enter your full name and a valid email.'],
+  consent_required:['Devam etmek için açık rıza kutusunu işaretleyin.','Please tick the consent box to continue.'],
+  file_required:['Lütfen CV dosyanızı ekleyin.','Please attach your CV.'],
+  file_too_large:['Dosya 10 MB sınırını aşıyor.','The file is larger than 10 MB.'],
+  file_type_not_allowed:['Yalnızca PDF, DOC veya DOCX yükleyebilirsiniz.','Only PDF, DOC or DOCX files are allowed.'],
+  rate_limited:['Çok fazla deneme yapıldı. Lütfen daha sonra tekrar deneyin.','Too many attempts. Please try again later.'],
+  save_failed:['Kaydedilemedi. Lütfen daha sonra tekrar deneyin.','Could not save. Please try again later.'],
+  upload_failed:['Dosya yüklenemedi. Lütfen tekrar deneyin.','File upload failed. Please try again.'],
+  network:['Bağlantı hatası. Lütfen tekrar deneyin.','Connection error. Please try again.']};
+  var msg=document.getElementById('cv-msg'),btn=f.querySelector('button[type=submit]'),U='https://fulwkbmmsobyecelmqdj.supabase.co/functions/v1/submit-cv';
+  function say(k){var i=d.getAttribute('lang')==='en'?1:0;msg.textContent=(M[k]||M.save_failed)[i]}
+  f.addEventListener('submit',function(e){e.preventDefault();msg.textContent='';
+   var fd=new FormData(f);fd.set('consent',f.consent.checked?'true':'false');
+   if(!f.full_name.value.trim()||!f.email.value.trim()||!f.email.validity.valid){say('invalid_fields');return}
+   if(!f.cv.files.length){say('file_required');return}
+   var fl=f.cv.files[0];
+   if(!/\.(pdf|docx?)$/i.test(fl.name)){say('file_type_not_allowed');return}
+   if(fl.size>10*1024*1024){say('file_too_large');return}
+   if(!f.consent.checked){say('consent_required');return}
+   btn.disabled=true;
+   fetch(U,{method:'POST',body:fd}).then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
+   .then(function(x){if(x.ok&&x.j.ok!==false){window.location.href='tesekkurler.html'}else{btn.disabled=false;say(x.j&&x.j.error)}})
+   .catch(function(){btn.disabled=false;say('network')})});}
  var dlg=document.getElementById('dlg');
  if(dlg){var v=dlg.querySelector('video');
   [].forEach.call(document.querySelectorAll('.film'),function(f){
