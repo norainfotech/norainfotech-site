@@ -253,6 +253,7 @@ details.acct .in{padding-top:18px}
 <p class="lead"><span class="tr">Hesabınızı Outsourcing ekibi onaylar; onaydan sonra ilan ekleyebilir ve aday arayabilirsiniz.</span><span class="en">The Outsourcing team approves each account; after approval you can post roles and search candidates.</span></p>
 <label class="f"><span><span class="tr">Şirket</span><span class="en">Company</span></span><input id="rc" maxlength="120" autocomplete="organization"></label>
 <label class="f"><span><span class="tr">Yetkili ad soyad</span><span class="en">Contact name</span></span><input id="rn" maxlength="120" autocomplete="name"></label>
+<label class="ck" style="margin:0 0 16px"><input type="checkbox" id="rt"><span><span class="tr">Adayların iletişim bilgilerinin yalnızca Nora aracılığıyla paylaşıldığını kabul ederim. Nora aracılığıyla tanıştığım bir adayla doğrudan çalışma ilişkisi kurarsam Nora ile yazılı olarak kararlaştırılan hizmet bedelini öderim.</span><span class="en">I agree that candidate contact details are shared only through Nora. If I enter a working relationship directly with a candidate introduced through Nora, I will pay the service fee agreed with Nora in writing.</span></span></label>
 <button type="button" class="btn" id="rgo"><span class="tr">Başvuruyu gönder</span><span class="en">Submit</span></button><p class="msg" id="m-reg" role="status"></p>
 </section>
 
@@ -281,7 +282,7 @@ details.acct .in{padding-top:18px}
 <div class="g2"><label class="f full"><span><span class="tr">Beceriler (virgülle)</span><span class="en">Skills (comma separated)</span></span><input id="fs" maxlength="200" placeholder="SAP, FI, Salesforce"></label>
 <label class="f"><span><span class="tr">Ülke (tercih edilen)</span><span class="en">Country (preferred)</span></span><select id="fc"><option value="">—</option><option value="TR">Türkiye</option><option value="DE">Almanya / Germany</option><option value="NL">Hollanda / Netherlands</option><option value="GB">Birleşik Krallık / UK</option><option value="CH">İsviçre / Switzerland</option><option value="AT">Avusturya / Austria</option><option value="FR">Fransa / France</option><option value="BE">Belçika / Belgium</option><option value="AE">BAE / UAE</option><option value="SA">Suudi Arabistan / Saudi Arabia</option><option value="US">ABD / USA</option><option value="CA">Kanada / Canada</option></select></label>
 <label class="f"><span><span class="tr">En az deneyim (yıl)</span><span class="en">Min. experience (years)</span></span><input id="fy" type="number" min="0" max="40" value="0"></label></div>
-<button type="button" class="btn" id="fgo"><span class="tr">Ara</span><span class="en">Search</span></button><p class="msg" id="m-find" role="status"></p><div id="fres"></div>
+<button type="button" class="btn" id="fgo"><span class="tr">Ara</span><span class="en">Search</span></button><p class="msg" id="m-find" role="status"></p><div id="fres"></div><div class="mine"><h3 style="margin:14px 0 4px;font-size:18px"><span class="tr">İsteklerim</span><span class="en">My requests</span></h3><div id="reqs"></div></div>
 </section>
 </div>
 </div>
@@ -307,7 +308,7 @@ details.acct .in{padding-top:18px}
   employer_not_approved:['Hesabınız henüz onaylanmadı.','Your account is not approved yet.'],
   network:['Bağlantı hatası. Lütfen tekrar deneyin.','Connection error. Please try again.'],
   generic:['Bir hata oluştu. Lütfen tekrar deneyin.','Something went wrong. Please try again.'],
-  saved:['Kaydedildi.','Saved.'],sent:['İletişim isteği gönderildi.','Contact request sent.'],none:['Uygun aday bulunamadı. Becerileri azaltmayı deneyin.','No matching candidates. Try fewer skills.']};
+  saved:['Kaydedildi.','Saved.'],terms_required:['Devam etmek için koşulları kabul edin.','Please accept the terms to continue.'],sent:['İletişim isteği gönderildi.','Contact request sent.'],none:['Uygun aday bulunamadı. Becerileri azaltmayı deneyin.','No matching candidates. Try fewer skills.']};
  function tx(k){var v=T[k]||T.generic;return v[L()]}
  function say(id,k,ok){var e=$(id);e.className='msg'+(ok?' ok':'');e.textContent=k?tx(k):''}
  var sess=null,emp=null;try{sess=JSON.parse(localStorage.getItem(SK))}catch(e){}
@@ -326,14 +327,15 @@ details.acct .in{padding-top:18px}
   $('p-load').hidden=true;$('p-app').hidden=false;$('who').textContent=mail();
   $('reg').hidden=!!emp;$('pend').hidden=!(emp&&emp.status==='pending');$('ok').hidden=!(emp&&emp.status==='approved');
   if(emp&&emp.status==='rejected'){$('pend').hidden=false}
-  if(emp&&emp.status==='approved')loadMine()}
+  if(emp&&emp.status==='approved'){loadMine();loadReqs()}}
  function load(){if(!sess){toLogin();return}
   get('employers?select=id,company,status').then(function(x){
    if(x.status===401||x.status===403){save(null);toLogin();return}
    emp=(x.j&&x.j[0])||null;view()}).catch(function(){$('p-load').innerHTML='<p class="ph">'+tx('network')+'</p>'})}
  $('rgo').addEventListener('click',function(){var c=$('rc').value.trim(),n=$('rn').value.trim();
   if(c.length<2||n.length<2){say('m-reg','invalid_fields');return}
-  $('rgo').disabled=true;rpc('employer_register',{p_company:c,p_name:n}).then(function(x){$('rgo').disabled=false;if(x.ok)load();else say('m-reg',err(x))})});
+  if(!$('rt').checked){say('m-reg','terms_required');return}
+  $('rgo').disabled=true;rpc('employer_register',{p_company:c,p_name:n,p_terms:true}).then(function(x){$('rgo').disabled=false;if(x.ok)load();else say('m-reg',err(x))})});
  function tab(n){$('t1').setAttribute('aria-selected',n===1);$('t2').setAttribute('aria-selected',n===2);$('s-post').hidden=n!==1;$('s-find').hidden=n!==2}
  $('t1').addEventListener('click',function(){tab(1)});$('t2').addEventListener('click',function(){tab(2)});
  $('pgo').addEventListener('click',function(){var t=$('pt').value.trim();if(t.length<3){say('m-post','invalid_fields');return}
@@ -353,8 +355,9 @@ details.acct .in{padding-top:18px}
     return '<div class="cand"><h4>'+esc(c.headline||'—')+' <small style="color:#5B6778;font-weight:400">#'+esc(c.ref)+'</small></h4><p class="meta">'+(c.years_experience!=null?esc(c.years_experience)+' '+b('yıl deneyim','yrs experience'):'')+(k?' · '+b(k[0],k[1]):'')+(c.availability?' · '+esc(String(c.availability).replace(/_/g,' ')):'')+'</p>'+
      '<div>'+(c.skills||[]).slice(0,14).map(function(s){return '<span class="k">'+esc(s)+'</span>'}).join('')+'</div>'+
      '<div class="acts" style="margin-top:10px"><button type="button" class="btn2" data-cid="'+esc(c.cid)+'">'+b('İletişim isteği gönder','Send contact request')+'</button></div></div>'}).join('')})});
+ function loadReqs(){rpc('employer_my_requests').then(function(x){var r=(x.ok&&x.j)||[];var S={pending:['Yanıt bekleniyor','Awaiting reply'],accepted:['Aday kabul etti — Outsourcing ekibi sizinle iletişime geçecek','Candidate accepted — the Outsourcing team will contact you'],declined:['Aday reddetti','Declined']};$('reqs').innerHTML=r.length?r.map(function(q){var s=S[q.status]||S.pending;return '<div class="it"><span>#'+esc(q.ref)+'</span><span>'+b(s[0],s[1])+'</span></div>'}).join(''):'<p class="ph">'+b('Henüz istek yok.','No requests yet.')+'</p>'})}
  $('fres').addEventListener('click',function(e){var t=e.target.closest('button[data-cid]');if(!t)return;t.disabled=true;
-  rpc('employer_request_contact',{p_candidate:t.getAttribute('data-cid')}).then(function(x){if(x.ok){t.outerHTML='<span class="st">'+b('İstek gönderildi ✓','Request sent ✓')+'</span>'}else{t.disabled=false;say('m-find',err(x))}})});
+  rpc('employer_request_contact',{p_candidate:t.getAttribute('data-cid')}).then(function(x){if(x.ok){t.outerHTML='<span class="st">'+b('İstek gönderildi ✓','Request sent ✓')+'</span>';loadReqs()}else{t.disabled=false;say('m-find',err(x))}})});
  $('logout').addEventListener('click',function(){save(null);location.href='outsourcing.html'});
  load();
 })();
