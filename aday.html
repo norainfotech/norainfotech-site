@@ -176,8 +176,8 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 fieldset.q{border:0;margin:0 0 24px;padding:0}fieldset.q legend{padding:0;margin:0 0 10px;font-size:15px;font-weight:600;color:#0E1B2E}
 .chs{display:flex;flex-wrap:wrap;gap:10px}
 .ch{position:relative}.ch input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
-.ch span{display:inline-flex;align-items:center;padding:11px 18px;border:1px solid #DDE3EC;border-radius:999px;background:#fff;font-size:15px;font-weight:500;color:#3D4859;transition:all .15s}
-.ch:hover span{border-color:#153A72}
+.ch>span{display:inline-flex;align-items:center;padding:11px 18px;border:1px solid #DDE3EC;border-radius:999px;background:#fff;font-size:15px;font-weight:500;color:#3D4859;transition:all .15s}
+.ch:hover>span{border-color:#153A72}
 .ch input:checked+span{background:#153A72;border-color:#153A72;color:#fff}
 .ch input:focus-visible+span{outline:3px solid #6B93D6;outline-offset:2px}
 .acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.row-a{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:10px}
@@ -194,6 +194,16 @@ fieldset.q{border:0;margin:0 0 24px;padding:0}fieldset.q legend{padding:0;margin
 details.acct summary{cursor:pointer;font-weight:600;font-size:16px;color:#0E1B2E;list-style:none;display:flex;justify-content:space-between;align-items:center}
 details.acct summary::-webkit-details-marker{display:none}details.acct summary::after{content:"+";font-size:22px;color:#5B6778}details.acct[open] summary::after{content:"–"}
 details.acct .in{padding-top:18px}
+.pp select{padding:13px 12px;border:1px solid #DDE3EC;border-radius:10px;font:inherit;font-size:16px;color:#0E1B2E;background:#fff}
+.rate{display:flex;gap:10px;max-width:360px}.rate input{flex:1}
+.btn2.sm{padding:8px 16px;font-size:14px}
+.pcard{border:1px solid #DDE3EC;border-radius:14px;padding:20px 22px;margin:0 0 16px;background:#fff}
+.ph-t{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 12px}.ph-t h3{margin:0;font-size:17px;color:#0E1B2E}
+.pv{font-size:15px;color:#3D4859;line-height:1.7}.pv div{display:flex;gap:10px}.pv b{flex:none;width:150px;color:#5B6778;font-weight:500}
+.acts.warn{background:#FDF1F0;border:1px solid #F0C9C6;border-radius:12px;padding:14px 16px;margin:0 0 12px}
+#langs{display:flex;flex-wrap:wrap;gap:10px 16px}.lrow{display:flex;gap:8px;align-items:center;margin:0}.lrow select{padding:9px 10px;font-size:15px}
+.pp .hint a{color:inherit}
+@media (max-width:960px){.pv div{flex-direction:column;gap:0}.pv b{width:auto}}
 .pt [hidden]{display:none!important}
 @media (max-width:960px){.pt{padding:0 20px 48px}.pp{padding:24px 20px}.g2{grid-template-columns:1fr}.pp h2{font-size:24px}.st-s{display:none}.st-l{font-size:13px}.dz{padding:26px 16px}}
 </style>
@@ -214,7 +224,7 @@ details.acct .in{padding-top:18px}
 <div class="head"><h1><span class="tr">Aday portalı</span><span class="en">Candidate portal</span></h1><p class="sub"><span class="tr">Size uygun ilanları görmek için bilgilerinizi girin.</span><span class="en">Enter your details to see the roles that suit you.</span></p></div>
 <div class="pt" id="p-load"><p class="ph"><span class="tr">Yükleniyor…</span><span class="en">Loading…</span></p></div>
 <div class="pt" id="p-app" hidden>
-<div class="pt-top"><span class="who" id="who"></span><button type="button" class="btn2" id="logout"><span class="tr">Çıkış</span><span class="en">Sign out</span></button></div>
+<div class="pt-top"><span class="who" id="who"></span><span class="acts"><button type="button" class="btn2 sm" id="p-open"><span class="tr">Profilim</span><span class="en">My profile</span></button><button type="button" class="btn2 sm" id="logout"><span class="tr">Çıkış</span><span class="en">Sign out</span></button></span></div>
 <ol class="steps" id="steps" aria-label="Progress">
 <li data-n="1"><button type="button" class="st-b"><span class="st-c"></span><span class="st-l"><span class="tr">Bilgileriniz</span><span class="en">Your details</span></span><span class="st-s"><span class="tr">CV ve profil</span><span class="en">CV and profile</span></span></button></li>
 <li data-n="2"><button type="button" class="st-b"><span class="st-c"></span><span class="st-l"><span class="tr">Tercihleriniz</span><span class="en">Preferences</span></span><span class="st-s"><span class="tr">Aradığınız rol</span><span class="en">The role you seek</span></span></button></li>
@@ -234,7 +244,7 @@ details.acct .in{padding-top:18px}
 </div>
 <input type="file" id="dz-file" accept=".pdf,.doc,.docx" hidden>
 <div class="chip-file" id="cvbar" hidden><div class="fn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><div><span id="cvname"></span><small id="cvdate"></small></div></div><button type="button" class="btn2" id="cv-change"><span class="tr">CV'yi değiştir</span><span class="en">Replace CV</span></button></div>
-<label class="ck" id="ckrow"><input type="checkbox" id="consent"><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine ve 12 ay saklanmasına açık rıza veriyorum. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed and kept in the candidate pool for 12 months. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
+<label class="ck" id="ckrow"><input type="checkbox" id="consent"><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine açık rıza veriyorum. Bu rızayı profil sayfamdan istediğim zaman kaldırabilirim. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed in the candidate pool. I can withdraw this consent at any time from my profile page. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
 <p class="msg" id="m-up" role="status" aria-live="polite"></p>
 <div id="pf" hidden>
 <div class="note-ok" id="note" hidden><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg><span id="note-t"></span></div>
@@ -245,7 +255,7 @@ details.acct .in{padding-top:18px}
 <label class="f" data-k="phone"><span class="lb"><span><span class="tr">Telefon</span><span class="en">Phone</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><input type="text" name="phone" maxlength="40" autocomplete="tel"></label>
 <label class="f" data-k="country"><span class="lb"><span><span class="tr">Ülke</span><span class="en">Country</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><input type="text" name="country" maxlength="80" autocomplete="country-name"></label>
 <label class="f" data-k="headline"><span class="lb"><span><span class="tr">Güncel unvan</span><span class="en">Current title</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><input type="text" name="headline" maxlength="120" placeholder="SAP FI/CO Consultant"></label>
-<label class="f" data-k="years_experience"><span class="lb"><span><span class="tr">Deneyim (yıl)</span><span class="en">Experience (years)</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><input type="number" name="years_experience" min="0" max="60" inputmode="numeric"></label>
+<label class="f" data-k="years_experience"><span class="lb"><span><span class="tr">Deneyim (yıl)</span><span class="en">Experience (years)</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><input type="number" name="years_experience" min="0" max="60" inputmode="numeric"><p class="hint"><span class="tr">İş tarihlerinizden hesaplanır; staj ve eğitim sayılmaz. Gerekirse düzeltin.</span><span class="en">Calculated from your job dates; internships and education are not counted. Correct it if needed.</span></p></label>
 <div class="f full" data-k="skills"><span class="lb"><span><span class="tr">Yetkinlikler</span><span class="en">Skills</span></span><em class="ab" hidden><span class="tr">CV'den</span><span class="en">From CV</span></em></span><div class="tags" id="tags"><input type="text" id="tag-in" maxlength="60" aria-label="Skill" placeholder=""></div><p class="hint"><span class="tr">Eklemek için yazıp Enter'a basın.</span><span class="en">Type and press Enter to add.</span></p></div>
 </div>
 <div class="row-a"><span></span><button class="btn" type="submit"><span class="tr">Kaydet ve devam et</span><span class="en">Save and continue</span></button></div>
@@ -259,7 +269,7 @@ details.acct .in{padding-top:18px}
 <form id="f-pref" novalidate>
 <fieldset class="q"><legend><span class="tr">Çalışma şekli</span><span class="en">Engagement type</span></legend><div class="chs">
 <label class="ch"><input type="radio" name="kind" value="contract"><span><span class="tr">Sözleşmeli</span><span class="en">Contract</span></span></label>
-<label class="ch"><input type="radio" name="kind" value="permanent"><span><span class="tr">Kalıcı</span><span class="en">Permanent</span></span></label>
+<label class="ch"><input type="radio" name="kind" value="permanent"><span><span class="tr">Kadrolu</span><span class="en">Permanent employee</span></span></label>
 <label class="ch"><input type="radio" name="kind" value="any"><span><span class="tr">Fark etmez</span><span class="en">Either</span></span></label></div></fieldset>
 <fieldset class="q"><legend><span class="tr">Çalışma modeli</span><span class="en">Work model</span></legend><div class="chs">
 <label class="ch"><input type="checkbox" name="work" value="remote"><span><span class="tr">Uzaktan</span><span class="en">Remote</span></span></label>
@@ -270,11 +280,22 @@ details.acct .in{padding-top:18px}
 <label class="ch"><input type="radio" name="availability" value="1m"><span><span class="tr">1 ay içinde</span><span class="en">Within 1 month</span></span></label>
 <label class="ch"><input type="radio" name="availability" value="3m"><span><span class="tr">2–3 ay içinde</span><span class="en">Within 2–3 months</span></span></label>
 <label class="ch"><input type="radio" name="availability" value="later"><span><span class="tr">Daha sonra</span><span class="en">Later</span></span></label></div></fieldset>
-<div class="g2">
-<label class="f"><span class="lb"><span><span class="tr">Tercih ettiğiniz ülkeler</span><span class="en">Preferred countries</span></span></span><input type="text" name="countries" maxlength="200" placeholder="Türkiye, Almanya, Hollanda"></label>
-<label class="f"><span class="lb"><span><span class="tr">Ücret beklentisi (isteğe bağlı)</span><span class="en">Rate expectation (optional)</span></span></span><input type="text" name="rate" maxlength="60" placeholder="€500 / gün"></label>
-<label class="f full"><span class="lb"><span><span class="tr">İlgilendiğiniz alanlar ve roller</span><span class="en">Areas and roles of interest</span></span></span><input type="text" name="focus" maxlength="300" placeholder="SAP FI/CO, S/4HANA geçişi, proje yönetimi"></label>
-</div>
+<fieldset class="q"><legend><span class="tr">Çalışmak istediğiniz ülkeler</span><span class="en">Countries you would work in</span></legend><div class="chs" id="ctry"></div></fieldset>
+<div id="rate-box" hidden class="q"><label class="f" style="margin:0"><span class="lb"><span id="rate-lb"></span></span>
+<span class="rate"><input type="number" name="rate_amount" min="0" step="any" inputmode="decimal" placeholder="0"><select name="rate_cur" aria-label="Currency"><option value="EUR">EUR €</option><option value="USD">USD $</option><option value="TRY">TRY ₺</option><option value="GBP">GBP £</option></select></span></label>
+<p class="hint"><span class="tr">İsteğe bağlı. Yalnızca eşleştirme için kullanılır, müşteriyle onayınız olmadan paylaşılmaz.</span><span class="en">Optional. Used only for matching and never shared with a client without your consent.</span></p></div>
+<fieldset class="q"><legend><span class="tr">Dil bilgisi</span><span class="en">Languages</span></legend><div id="langs"></div></fieldset>
+<fieldset class="q"><legend><span class="tr">Yurt içi seyahat edebilir misiniz?</span><span class="en">Can you travel within your country?</span></legend><div class="chs">
+<label class="ch"><input type="radio" name="tdom" value="yes"><span><span class="tr">Evet</span><span class="en">Yes</span></span></label>
+<label class="ch"><input type="radio" name="tdom" value="no"><span><span class="tr">Hayır</span><span class="en">No</span></span></label></div></fieldset>
+<fieldset class="q"><legend><span class="tr">Yurt dışı seyahat edebilir misiniz?</span><span class="en">Can you travel abroad?</span></legend><div class="chs">
+<label class="ch"><input type="radio" name="tint" value="yes"><span><span class="tr">Evet</span><span class="en">Yes</span></span></label>
+<label class="ch"><input type="radio" name="tint" value="no"><span><span class="tr">Hayır</span><span class="en">No</span></span></label></div></fieldset>
+<fieldset class="q" id="tfreq" hidden><legend><span class="tr">Ne sıklıkla seyahat edebilirsiniz?</span><span class="en">How often can you travel?</span></legend><div class="chs">
+<label class="ch"><input type="radio" name="tfreq" value="few_days"><span><span class="tr">Ayda birkaç gün</span><span class="en">A few days a month</span></span></label>
+<label class="ch"><input type="radio" name="tfreq" value="1_2_weeks"><span><span class="tr">Ayda 1–2 hafta</span><span class="en">1–2 weeks a month</span></span></label>
+<label class="ch"><input type="radio" name="tfreq" value="mostly"><span><span class="tr">Çoğunlukla seyahatte</span><span class="en">Mostly on the road</span></span></label></div></fieldset>
+<label class="f"><span class="lb"><span><span class="tr">İlgilendiğiniz alanlar ve roller</span><span class="en">Areas and roles of interest</span></span></span><input type="text" name="focus" maxlength="300" placeholder="SAP FI/CO, S/4HANA geçişi, proje yönetimi"></label>
 <div class="row-a"><button type="button" class="btn2" id="back2"><span class="tr">Geri</span><span class="en">Back</span></button><button class="btn" type="submit"><span class="tr">Kaydet ve ilanları gör</span><span class="en">Save and see roles</span></button></div>
 <p class="msg" id="m-pref" role="status" aria-live="polite"></p>
 </form>
@@ -288,11 +309,19 @@ details.acct .in{padding-top:18px}
 <div id="s-q" hidden><h2 style="font-size:22px;margin:26px 0 6px"><span class="tr">Sorularımız</span><span class="en">Our questions</span></h2><p class="ph"><span class="tr">Sizi doğru fırsatlarla eşleştirmemize yardımcı olur.</span><span class="en">These help us match you with the right opportunities.</span></p><div id="qs"></div></div>
 </section>
 
-<details class="pp acct" id="acct"><summary><span class="tr">Verilerim</span><span class="en">My data</span></summary><div class="in">
-<p class="ph" id="ret"></p>
-<div class="acts"><button type="button" class="btn2" id="export"><span class="tr">Verilerimi indir</span><span class="en">Download my data</span></button><button type="button" class="btn3" id="del"><span class="tr">Hesabımı ve verilerimi sil</span><span class="en">Delete my account and data</span></button></div>
-<div id="delbox" hidden class="acts" style="margin-top:14px"><span class="ph" style="margin:0"><span class="tr">Bu işlem geri alınamaz. Emin misiniz?</span><span class="en">This cannot be undone. Are you sure?</span></span><button type="button" class="btn3" id="delyes"><span class="tr">Evet, sil</span><span class="en">Yes, delete</span></button><button type="button" class="btn2" id="delno"><span class="tr">Vazgeç</span><span class="en">Cancel</span></button></div>
-<p class="msg" id="m-data" role="status" aria-live="polite"></p></div></details>
+<section class="pp" id="s4" hidden aria-labelledby="h4s">
+<h2 id="h4s"><span class="tr">Profilim</span><span class="en">My profile</span></h2>
+<div class="pcard"><div class="ph-t"><h3><span class="tr">Bilgilerim</span><span class="en">My details</span></h3><button type="button" class="btn2 sm" data-go="1"><span class="tr">Düzenle</span><span class="en">Edit</span></button></div><div id="pv-1" class="pv"></div></div>
+<div class="pcard"><div class="ph-t"><h3><span class="tr">Tercihlerim</span><span class="en">My preferences</span></h3><button type="button" class="btn2 sm" data-go="2"><span class="tr">Düzenle</span><span class="en">Edit</span></button></div><div id="pv-2" class="pv"></div></div>
+<div class="pcard"><div class="ph-t"><h3><span class="tr">CV'm</span><span class="en">My CV</span></h3><button type="button" class="btn2 sm" id="p-cv"><span class="tr">CV'yi değiştir</span><span class="en">Replace CV</span></button></div><div id="pv-cv" class="pv"></div></div>
+<div class="pcard"><div class="ph-t"><h3><span class="tr">İzin ve verilerim</span><span class="en">Consent and my data</span></h3></div>
+<label class="ck" style="margin:0 0 10px"><input type="checkbox" id="pconsent" checked><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine açık rıza veriyorum. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed in the candidate pool. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
+<p class="hint" style="margin:0 0 14px"><span class="tr">Kutucuğu kaldırırsanız profiliniz, CV'niz ve tüm verileriniz kalıcı olarak silinir. Rızanız olduğu sürece verileriniz kullanılabilir.</span><span class="en">If you untick the box, your profile, CV and all data are permanently deleted. Your data may be used for as long as you consent.</span></p>
+<div id="delbox" hidden class="acts warn"><span class="ph" style="margin:0"><span class="tr">Rızanızı kaldırıp verilerinizi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</span><span class="en">Withdraw consent and delete your data? This cannot be undone.</span></span><button type="button" class="btn3" id="delyes"><span class="tr">Evet, rızamı kaldır ve sil</span><span class="en">Yes, withdraw and delete</span></button><button type="button" class="btn2" id="delno"><span class="tr">Vazgeç</span><span class="en">Cancel</span></button></div>
+<div class="acts" style="margin-top:6px"><button type="button" class="btn2" id="export"><span class="tr">Verilerimi indir</span><span class="en">Download my data</span></button></div>
+<p class="msg" id="m-data" role="status" aria-live="polite"></p></div>
+<div class="row-a"><button type="button" class="btn2" id="p-back"><span class="tr">Portala dön</span><span class="en">Back to portal</span></button></div>
+</section>
 </div>
 </main>
 
@@ -356,11 +385,11 @@ details.acct .in{padding-top:18px}
 
  // ---- adımlar
  function flags(){var p=(cand&&cand.prefs)||{};return {c:!!cand,p1:!!p.profile_ok,p2:!!p.done_at}}
- function allowed(n){var f=flags();return n===1||(n===2&&f.p1)||(n===3&&f.p1&&f.p2)}
+ function allowed(n){var f=flags();return n===1||n===4||(n===2&&f.p1)||(n===3&&f.p1&&f.p2)}
  function go(n,noScroll){if(!allowed(n))return;step=n;render();if(!noScroll){try{$('steps').scrollIntoView({behavior:'smooth',block:'start'})}catch(e){}}}
  function render(){
   var f=flags();
-  [1,2,3].forEach(function(i){$('s'+i).hidden=i!==step});
+  [1,2,3,4].forEach(function(i){$('s'+i).hidden=i!==step});$('steps').hidden=step===4;
   [].forEach.call($('steps').children,function(li){
    var n=+li.getAttribute('data-n'),done=n!==step&&((n===1&&f.p1)||(n===2&&f.p2));
    li.className=(n===step?'cur':done?'done':'')+(allowed(n)?'':' lock');
@@ -373,9 +402,11 @@ details.acct .in{padding-top:18px}
   $('ckrow').hidden=!!(cand&&cvInfo&&!pending&&!replacing);
   if(replacing){$('dz').hidden=false;$('ckrow').hidden=false}
   if(step===3)loadRoles();
+  if(step===4)renderProfile();
  }
  var cvInfo=null,replacing=false;
  $('steps').addEventListener('click',function(e){var li=e.target.closest('li');if(!li)return;go(+li.getAttribute('data-n'))});
+ var lastStep=1;
 
  // ---- yükleme
  function load(keep){
@@ -388,7 +419,6 @@ details.acct .in{padding-top:18px}
    $('p-load').hidden=true;$('p-app').hidden=false;
    if(!cand){step=1;render();return}
    fillProfile();fillPrefs();
-   $('ret').innerHTML=b('Kaydınız '+dt(cand.retention_until)+' tarihine kadar saklanır; giriş yaptığınızda süre yenilenir.','Your record is kept until '+dt(cand.retention_until)+'; signing in renews the period.');
    return loadFiles().then(function(){
     if(!keep){var f=flags();step=!f.p1?1:!f.p2?2:3}
     render();renderDyn();loadQuestions()})})
@@ -462,23 +492,50 @@ details.acct .in{padding-top:18px}
  $('dz').addEventListener('drop',function(e){var fl=e.dataTransfer&&e.dataTransfer.files[0];handleFile(fl)});
 
  // ---- 2. adım: tercihler
+ var CTRY=[['TR','Türkiye','Türkiye'],['DE','Almanya','Germany'],['NL','Hollanda','Netherlands'],['GB','Birleşik Krallık','United Kingdom'],['CH','İsviçre','Switzerland'],['AT','Avusturya','Austria'],['FR','Fransa','France'],['BE','Belçika','Belgium'],['AE','BAE','UAE'],['SA','Suudi Arabistan','Saudi Arabia'],['US','ABD','USA'],['CA','Kanada','Canada'],['OTHER','Diğer','Other'],['ANY','Fark etmez','Anywhere']];
+ var LANG=[['tr','Türkçe','Turkish'],['en','İngilizce','English'],['de','Almanca','German'],['nl','Felemenkçe','Dutch'],['fr','Fransızca','French'],['ar','Arapça','Arabic'],['ru','Rusça','Russian'],['es','İspanyolca','Spanish'],['it','İtalyanca','Italian'],['other','Diğer','Other']];
+ var LVL=[['basic','Temel','Basic'],['mid','Orta','Intermediate'],['adv','İleri','Advanced'],['native','Anadil','Native']];
+ var TF={few_days:['Ayda birkaç gün','A few days a month'],'1_2_weeks':['Ayda 1–2 hafta','1–2 weeks a month'],mostly:['Çoğunlukla seyahatte','Mostly on the road']};
+ var CUR={EUR:'€',USD:'$',TRY:'₺',GBP:'£'};
+ function nm(list,code){var r=list.filter(function(x){return x[0]===code})[0];return r?b(r[1],r[2]):esc(code)}
+ (function build(){
+  $('ctry').innerHTML=CTRY.map(function(c){return '<label class="ch"><input type="checkbox" name="countries" value="'+c[0]+'"><span>'+b(c[1],c[2])+'</span></label>'}).join('');
+  $('langs').innerHTML=LANG.map(function(l){return '<div class="lrow"><label class="ch"><input type="checkbox" name="lang" value="'+l[0]+'"><span>'+b(l[1],l[2])+'</span></label><select name="lv-'+l[0]+'" hidden aria-label="Level">'+LVL.map(function(v){return '<option value="'+v[0]+'">'+(L()?v[2]:v[1])+'</option>'}).join('')+'</select></div>'}).join('')})();
+ function syncLv(){[].forEach.call($('f-pref').querySelectorAll('input[name=lang]'),function(i){$('f-pref').elements['lv-'+i.value].hidden=!i.checked})}
+ function syncRate(){var k=($('f-pref').querySelector('input[name=kind]:checked')||{}).value;$('rate-box').hidden=!k;
+  $('rate-lb').innerHTML=k==='contract'?b('Günlük ücret beklentiniz','Your expected daily rate'):b('Aylık ücret beklentiniz','Your expected monthly salary')}
+ function syncTrv(){var f=$('f-pref'),d=f.querySelector('input[name=tdom]:checked'),t=f.querySelector('input[name=tint]:checked');$('tfreq').hidden=!((d&&d.value==='yes')||(t&&t.value==='yes'))}
+ $('f-pref').addEventListener('change',function(e){var t=e.target;
+  if(t.name==='kind')syncRate();if(t.name==='lang')syncLv();if(t.name==='tdom'||t.name==='tint')syncTrv();
+  if(t.name==='countries'&&t.checked){var any=t.value==='ANY';[].forEach.call($('f-pref').querySelectorAll('input[name=countries]'),function(i){if(i!==t&&(any||i.value==='ANY'))i.checked=false})}});
+ [].forEach.call(document.querySelectorAll('.tg button'),function(x){x.addEventListener('click',function(){var f=$('f-pref');[].forEach.call(f.querySelectorAll('select[name^=lv-]'),function(sel){var cur=sel.value;[].forEach.call(sel.options,function(o){var v=LVL.filter(function(q){return q[0]===o.value})[0];o.textContent=L()?v[2]:v[1]});sel.value=cur})})});
  function fillPrefs(){
   var p=cand.prefs||{},f=$('f-pref');
   [].forEach.call(f.querySelectorAll('input[name=kind],input[name=availability]'),function(i){i.checked=p[i.name]===i.value});
   [].forEach.call(f.querySelectorAll('input[name=work]'),function(i){i.checked=(p.work||[]).indexOf(i.value)>-1});
-  f.countries.value=p.countries||(cand.country||'');f.rate.value=p.rate||'';f.focus.value=p.focus||''}
+  var cs=Array.isArray(p.countries)?p.countries:[];
+  [].forEach.call(f.querySelectorAll('input[name=countries]'),function(i){i.checked=cs.indexOf(i.value)>-1});
+  var lg={};(Array.isArray(p.langs)?p.langs:[]).forEach(function(x){lg[x.l]=x.lv});
+  [].forEach.call(f.querySelectorAll('input[name=lang]'),function(i){i.checked=!!lg[i.value];if(lg[i.value])f.elements['lv-'+i.value].value=lg[i.value]});
+  f.rate_amount.value=p.rate_amount==null?'':p.rate_amount;f.rate_cur.value=p.rate_cur||'EUR';
+  [].forEach.call(f.querySelectorAll('input[name=tdom]'),function(i){i.checked=p.travel_dom!=null&&(p.travel_dom?'yes':'no')===i.value});
+  [].forEach.call(f.querySelectorAll('input[name=tint]'),function(i){i.checked=p.travel_int!=null&&(p.travel_int?'yes':'no')===i.value});
+  [].forEach.call(f.querySelectorAll('input[name=tfreq]'),function(i){i.checked=p.travel_freq===i.value});
+  f.focus.value=p.focus||'';syncLv();syncRate();syncTrv()}
  $('back2').addEventListener('click',function(){go(1)});
  $('f-pref').addEventListener('submit',function(e){e.preventDefault();var f=e.target,btn=f.querySelector('button[type=submit]');
   var kind=(f.querySelector('input[name=kind]:checked')||{}).value,av=(f.querySelector('input[name=availability]:checked')||{}).value;
   if(!kind||!av){say('m-pref','choose_required');return}
-  var work=[].map.call(f.querySelectorAll('input[name=work]:checked'),function(i){return i.value});
+  function vals(n){return [].map.call(f.querySelectorAll('input[name='+n+']:checked'),function(i){return i.value})}
+  var langs=vals('lang').map(function(l){return {l:l,lv:f.elements['lv-'+l].value}});
+  var td=(f.querySelector('input[name=tdom]:checked')||{}).value==='yes',ti=(f.querySelector('input[name=tint]:checked')||{}).value==='yes',tf=(f.querySelector('input[name=tfreq]:checked')||{}).value||null;
   btn.disabled=true;
-  rpc('update_my_prefs',{p:{kind:kind,work:work,availability:av,countries:f.countries.value,rate:f.rate.value,focus:f.focus.value}}).then(function(x){
+  rpc('update_my_prefs',{p:{kind:kind,work:vals('work'),availability:av,countries:vals('countries'),rate_amount:f.rate_amount.value,rate_cur:f.rate_cur.value,langs:langs,travel_dom:td,travel_int:ti,travel_freq:tf,focus:f.focus.value}}).then(function(x){
    btn.disabled=false;if(!x.ok){say('m-pref','generic');return}
    say('m-pref','');return load(true).then(function(){go(3)})}).catch(function(){btn.disabled=false;say('m-pref','network')})});
 
  // ---- 3. adım: ilanlar
- var KIND={permanent:['Kalıcı','Permanent'],contract:['Sözleşmeli','Contract'],any:['Fark etmez','Either']};
+ var KIND={permanent:['Kadrolu','Permanent employee'],contract:['Sözleşmeli','Contract'],any:['Fark etmez','Either']};
  var WORK={remote:['Uzaktan','Remote'],hybrid:['Hibrit','Hybrid'],onsite:['Ofiste','On-site']};
  var AV={now:['Hemen','Immediately'],'1m':['1 ay içinde','Within 1 month'],'3m':['2–3 ay içinde','Within 2–3 months'],later:['Daha sonra','Later']};
  function renderDyn(){
@@ -486,7 +543,7 @@ details.acct .in{padding-top:18px}
   var parts=[];
   if(KIND[p.kind])parts.push(b(KIND[p.kind][0],KIND[p.kind][1]));
   (p.work||[]).forEach(function(w){if(WORK[w])parts.push(b(WORK[w][0],WORK[w][1]))});
-  if(p.countries)parts.push(esc(p.countries));
+  if(Array.isArray(p.countries)&&p.countries.length)parts.push(p.countries.map(function(c){return nm(CTRY,c)}).join(', '));
   if(AV[p.availability])parts.push(b(AV[p.availability][0],AV[p.availability][1]));
   $('sum-t').innerHTML='<strong>'+b('Tercihleriniz','Your preferences')+':</strong> '+parts.join(' · ');$('sum').hidden=false}
  $('sum-e').addEventListener('click',function(){go(2)});
@@ -526,13 +583,35 @@ details.acct .in{padding-top:18px}
   if(!x.ok){say('m-data','generic');return}
   var u=URL.createObjectURL(new Blob([JSON.stringify(x.j,null,2)],{type:'application/json'}));
   var a=document.createElement('a');a.href=u;a.download='nora-verilerim.json';document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000)})});
- $('del').addEventListener('click',function(){$('delbox').hidden=false});
- $('delno').addEventListener('click',function(){$('delbox').hidden=true});
+ $('pconsent').addEventListener('change',function(){if(!this.checked)$('delbox').hidden=false});
+ $('delno').addEventListener('click',function(){$('delbox').hidden=true;$('pconsent').checked=true});
  $('delyes').addEventListener('click',function(){
   ensure().then(function(){return fetch(SB+'/functions/v1/delete-account',{method:'POST',headers:{Authorization:'Bearer '+sess.access_token,'Content-Type':'application/json'},body:JSON.stringify({confirm:true})})})
    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
    .then(function(x){if(x.ok){save(null);location.replace('outsourcing.html')}else say('m-data','delete_failed')})
    .catch(function(){say('m-data','network')})});
+
+ // ---- profil sayfası
+ function row(k,v){return v?'<div><b>'+k+'</b><span>'+v+'</span></div>':''}
+ function renderProfile(){
+  var c=cand||{},p=c.prefs||{};
+  $('pv-1').innerHTML=row(b('Ad soyad','Full name'),esc(c.full_name))+row(b('E-posta','Email'),esc(c.email))+row(b('Telefon','Phone'),esc(c.phone))+row(b('Ülke','Country'),esc(c.country))+row(b('Güncel unvan','Current title'),esc(c.headline))+row(b('Deneyim','Experience'),c.years_experience==null?'':esc(c.years_experience)+b(' yıl',' years'))+row(b('Yetkinlikler','Skills'),esc((c.skills||[]).join(', ')));
+  var h='';
+  if(KIND[p.kind])h+=row(b('Çalışma şekli','Engagement'),b(KIND[p.kind][0],KIND[p.kind][1]));
+  if((p.work||[]).length)h+=row(b('Çalışma modeli','Work model'),p.work.map(function(w){return WORK[w]?b(WORK[w][0],WORK[w][1]):''}).join(', '));
+  if(AV[p.availability])h+=row(b('Müsaitlik','Availability'),b(AV[p.availability][0],AV[p.availability][1]));
+  if(Array.isArray(p.countries)&&p.countries.length)h+=row(b('Ülkeler','Countries'),p.countries.map(function(x){return nm(CTRY,x)}).join(', '));
+  if(p.rate_amount!=null)h+=row(b(p.rate_period==='day'?'Günlük ücret':'Aylık ücret',p.rate_period==='day'?'Daily rate':'Monthly salary'),esc(p.rate_amount)+' '+esc(CUR[p.rate_cur]||p.rate_cur||''));
+  if(Array.isArray(p.langs)&&p.langs.length)h+=row(b('Diller','Languages'),p.langs.map(function(x){return nm(LANG,x.l)+' ('+nm(LVL,x.lv)+')'}).join(', '));
+  if(p.travel_dom!=null||p.travel_int!=null)h+=row(b('Seyahat','Travel'),[p.travel_dom?b('Yurt içi','Domestic'):'',p.travel_int?b('Yurt dışı','International'):'',p.travel_freq&&TF[p.travel_freq]?b(TF[p.travel_freq][0],TF[p.travel_freq][1]):''].filter(Boolean).join(' · ')||b('Seyahat edemez','No travel'));
+  if(p.focus)h+=row(b('İlgi alanları','Interests'),esc(p.focus));
+  $('pv-2').innerHTML=h||'<span class="hint">'+b('Henüz tercih girilmedi.','No preferences yet.')+'</span>';
+  $('pv-cv').innerHTML=cvInfo?row(b('Dosya','File'),esc(cvInfo.original_name))+row(b('Yüklenme','Uploaded'),esc(dt(cvInfo.uploaded_at))):'<span class="hint">'+b('CV yüklenmemiş.','No CV uploaded.')+'</span>';
+  $('pconsent').checked=true;$('delbox').hidden=true}
+ $('p-open').addEventListener('click',function(){if(step!==4)lastStep=step||1;go(4)});
+ $('p-back').addEventListener('click',function(){var f=flags();go(!f.p1?1:!f.p2?2:(lastStep===4?3:lastStep))});
+ [].forEach.call(document.querySelectorAll('[data-go]'),function(bt){bt.addEventListener('click',function(){go(+bt.getAttribute('data-go'))})});
+ $('p-cv').addEventListener('click',function(){replacing=true;go(1);$('dz-file').click()});
 
  load();
 })();
