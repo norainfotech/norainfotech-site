@@ -160,7 +160,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 <div class="pw" id="p-login">
 <form class="pc" id="f-mail" novalidate>
 <h2><span class="tr">E-posta ile giriş</span><span class="en">Sign in with email</span></h2>
-<p class="ph"><span class="tr">CV'nizi paylaşırken kullandığınız e-posta adresini yazın. Size 6 haneli bir kod göndereceğiz.</span><span class="en">Enter the email you used when sharing your CV. We will send you a 6-digit code.</span></p>
+<p class="ph"><span class="tr">CV'nizi paylaşırken kullandığınız e-posta adresini yazın. Size bir giriş kodu göndereceğiz.</span><span class="en">Enter the email you used when sharing your CV. We will send you a sign-in code.</span></p>
 <label><span><span class="tr">E-posta</span><span class="en">Email</span></span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
 <button class="btn" type="submit"><span class="tr">Kod gönder</span><span class="en">Send code</span></button>
 <p class="fine"><span class="tr">Henüz kayıtlı değil misiniz? <a href="outsourcing.html#cv">Önce CV'nizi paylaşın.</a></span><span class="en">Not registered yet? <a href="outsourcing.html#cv">Share your CV first.</a></span></p>
@@ -169,7 +169,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 <form class="pc" id="f-code" hidden novalidate>
 <h2><span class="tr">Kodu girin</span><span class="en">Enter the code</span></h2>
 <p class="ph"><span class="tr">Bu e-posta kayıtlıysa kod gönderildi. Birkaç dakika içinde gelmezse gereksiz klasörüne de bakın.</span><span class="en">If this email is registered, a code was sent. Check your spam folder if it does not arrive in a few minutes.</span></p>
-<label><span><span class="tr">6 haneli kod</span><span class="en">6-digit code</span></span><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required></label>
+<label><span><span class="tr">Giriş kodu</span><span class="en">Sign-in code</span></span><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required></label>
 <button class="btn" type="submit"><span class="tr">Giriş yap</span><span class="en">Sign in</span></button>
 <p class="msg" role="status" aria-live="polite"></p>
 </form>
@@ -268,7 +268,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
  function say2(f,k){var m=f.querySelector('.msg');m.className='msg';m.textContent=k?tx(k):''}
  $('f-code').addEventListener('submit',function(e){e.preventDefault();
   var f=e.target,btn=f.querySelector('button'),code=f.code.value.replace(/\s/g,'');
-  if(!/^\d{6}$/.test(code)){say2(f,'bad_code');return}
+  if(!/^\d{6,10}$/.test(code)){say2(f,'bad_code');return}
   btn.disabled=true;
   function ver(type){return fetch(SB+'/auth/v1/verify',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({type:type,email:email,token:code})}).then(function(r){return r.json().then(function(j){return {ok:r.ok&&!!j.access_token,j:j}})})}
   ver('email').then(function(x){return x.ok?x:ver('magiclink')}).then(function(x){
