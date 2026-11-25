@@ -156,7 +156,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </nav>
 </header>
 <main>
-<div class="head"><h1><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></h1><p class="sub"><span class="tr">E-postanıza gelen kodla giriş yapın; size önerilen ilanları görün, profilinizi ve CV'nizi güncelleyin.</span><span class="en">Sign in with a code sent to your email to see roles suggested for you and update your profile and CV.</span></p></div>
+<div class="head"><h1><span class="tr">Aday girişi</span><span class="en">Candidate sign-in</span></h1><p class="sub"><span class="tr">E-postanıza gelen kodla giriş yapın; bilgilerinizi ve CV'nizi ekleyin, size uygun rolleri görün.</span><span class="en">Sign in with a code sent to your email to add your details and CV and see the roles that suit you.</span></p></div>
 <div class="pw" id="p-login">
 <form class="pc" id="f-mail" novalidate>
 <h2><span class="tr">E-posta ile giriş</span><span class="en">Sign in with email</span></h2>
@@ -175,7 +175,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </div>
 <div class="pw" id="p-app" hidden>
 <div class="top"><span class="who" id="who"></span><button type="button" class="btn2" id="logout"><span class="tr">Çıkış</span><span class="en">Sign out</span></button></div>
-<section class="pc" id="s-nocand" hidden><h2><span class="tr">Profilinizi oluşturun</span><span class="en">Create your profile</span></h2><p class="ph"><span class="tr">Size uygun projeler çıktığında sizinle iletişime geçeriz ve burada size önerilen ilanları görürsünüz.</span><span class="en">We will contact you when a suitable project comes up, and you will see the roles suggested for you here.</span></p><form id="f-new" novalidate>
+<section class="pc" id="s-nocand" hidden><h2><span class="tr">Profilinizi oluşturun</span><span class="en">Create your profile</span></h2><p class="ph"><span class="tr">Size uygun roller çıktığında sizinle iletişime geçeriz ve burada size önerilen rolleri görürsünüz.</span><span class="en">We will contact you when a suitable role comes up, and you will see the roles suggested for you here.</span></p><form id="f-new" novalidate>
 <label><span><span class="tr">Ad soyad</span><span class="en">Full name</span></span><input name="full_name" required maxlength="120" autocomplete="name"></label>
 <label><span><span class="tr">Telefon (opsiyonel)</span><span class="en">Phone (optional)</span></span><input name="phone" maxlength="40" autocomplete="tel"></label>
 <label><span><span class="tr">Ülke</span><span class="en">Country</span></span><input name="country" maxlength="80" autocomplete="country-name"></label>
@@ -183,7 +183,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 <label class="ck"><input name="consent" type="checkbox"><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine ve 12 ay saklanmasına açık rıza veriyorum. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed and kept in the candidate pool for 12 months. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
 <button class="btn" type="submit"><span class="tr">Kaydı oluştur</span><span class="en">Create profile</span></button><p class="msg" id="m-new" role="status"></p></form></section>
 <div id="s-cand" hidden class="pw" style="padding:0;max-width:none">
-<section class="pc"><h2><span class="tr">Size önerilen ilanlar</span><span class="en">Roles suggested for you</span></h2><p class="ph"><span class="tr">İlgi bildirmeniz profilinizi müşteriyle paylaştığımız anlamına gelmez; paylaşmadan önce sizden ayrıca açık onay isteriz.</span><span class="en">Showing interest does not mean we share your profile with a client; we ask for your separate explicit consent first.</span></p><div id="roles"></div><p class="msg" id="m-roles" role="status"></p></section>
+<section class="pc"><h2><span class="tr">Size önerilen roller</span><span class="en">Roles suggested for you</span></h2><p class="ph"><span class="tr">İlgi bildirmeniz profilinizi müşteriyle paylaştığımız anlamına gelmez; paylaşmadan önce sizden ayrıca açık onay isteriz.</span><span class="en">Showing interest does not mean we share your profile with a client; we ask for your separate explicit consent first.</span></p><div id="roles"></div><p class="msg" id="m-roles" role="status"></p></section>
 <section class="pc" id="s-q" hidden><h2><span class="tr">Sorularımız</span><span class="en">Our questions</span></h2><p class="ph"><span class="tr">Sizi doğru fırsatlarla eşleştirmemize yardımcı olur.</span><span class="en">These help us match you with the right opportunities.</span></p><div id="qs"></div></section>
 <section class="pc"><h2><span class="tr">Profil</span><span class="en">Profile</span></h2><form id="f-prof" novalidate>
 <label><span><span class="tr">Ad soyad</span><span class="en">Full name</span></span><input name="full_name" required maxlength="120"></label>
@@ -303,7 +303,7 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
   get('matches?select=status,created_at,roles(id,title,kind,country,remote,duration,skills,status)&order=created_at.desc').then(function(x){
    var box=$('roles');if(!x.ok){box.innerHTML='';say('m-roles','generic');return}
    var rows=(x.j||[]).filter(function(m){return m.roles});
-   if(!rows.length){box.innerHTML='<p class="ph" style="margin:0">'+b('Şu an size önerilen ilan yok. Uygun bir fırsat çıktığında burada görünecek.','There are no roles suggested for you right now. A suitable one will appear here.')+'</p>';return}
+   if(!rows.length){box.innerHTML='<p class="ph" style="margin:0">'+b('Şu an size önerilen rol yok. Uygun bir fırsat çıktığında burada görünecek.','There are no roles suggested for you right now. A suitable one will appear here.')+'</p>';return}
    box.innerHTML=rows.map(function(m){var r=m.roles,k=KIND[r.kind]||['',''];
     var meta=[];if(k[0])meta.push(b(k[0],k[1]));if(r.country)meta.push(esc(r.country));
     if(r.remote===true)meta.push(b('Uzaktan','Remote'));else if(r.remote===false)meta.push(b('Yerinde','On-site'));
