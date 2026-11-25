@@ -160,15 +160,14 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 <div class="pw" id="p-login">
 <form class="pc" id="f-mail" novalidate>
 <h2><span class="tr">E-posta ile giriş</span><span class="en">Sign in with email</span></h2>
-<p class="ph"><span class="tr">CV'nizi paylaşırken kullandığınız e-posta adresini yazın. Size bir giriş kodu göndereceğiz.</span><span class="en">Enter the email you used when sharing your CV. We will send you a sign-in code.</span></p>
+<p class="ph"><span class="tr">E-posta adresinizi yazın, size bir giriş kodu gönderelim. İlk kez giriyorsanız aynı adımla kaydınız oluşur.</span><span class="en">Enter your email and we will send you a sign-in code. If this is your first time, the same step creates your account.</span></p>
 <label><span><span class="tr">E-posta</span><span class="en">Email</span></span><input name="email" type="email" required maxlength="200" autocomplete="email"></label>
 <button class="btn" type="submit"><span class="tr">Kod gönder</span><span class="en">Send code</span></button>
-<p class="fine"><span class="tr">Henüz kayıtlı değil misiniz? <a href="outsourcing.html#cv">Önce CV'nizi paylaşın.</a></span><span class="en">Not registered yet? <a href="outsourcing.html#cv">Share your CV first.</a></span></p>
 <p class="msg" role="status" aria-live="polite"></p>
 </form>
 <form class="pc" id="f-code" hidden novalidate>
 <h2><span class="tr">Kodu girin</span><span class="en">Enter the code</span></h2>
-<p class="ph"><span class="tr">Bu e-posta kayıtlıysa kod gönderildi. Birkaç dakika içinde gelmezse gereksiz klasörüne de bakın.</span><span class="en">If this email is registered, a code was sent. Check your spam folder if it does not arrive in a few minutes.</span></p>
+<p class="ph"><span class="tr">Kod e-postanıza gönderildi. Birkaç dakika içinde gelmezse gereksiz klasörüne de bakın.</span><span class="en">A code was sent to your email. Check your spam folder if it does not arrive in a few minutes.</span></p>
 <label><span><span class="tr">Giriş kodu</span><span class="en">Sign-in code</span></span><input name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" required></label>
 <button class="btn" type="submit"><span class="tr">Giriş yap</span><span class="en">Sign in</span></button>
 <p class="msg" role="status" aria-live="polite"></p>
@@ -176,7 +175,13 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
 </div>
 <div class="pw" id="p-app" hidden>
 <div class="top"><span class="who" id="who"></span><button type="button" class="btn2" id="logout"><span class="tr">Çıkış</span><span class="en">Sign out</span></button></div>
-<section class="pc" id="s-nocand" hidden><h2><span class="tr">Kayıt bulunamadı</span><span class="en">No record found</span></h2><p class="ph"><span class="tr">Bu e-posta ile kayıtlı bir CV yok. Önce CV'nizi paylaşın.</span><span class="en">There is no CV registered with this email. Please share your CV first.</span></p><a class="btn" href="outsourcing.html#cv"><span class="tr">CV paylaş</span><span class="en">Share your CV</span></a></section>
+<section class="pc" id="s-nocand" hidden><h2><span class="tr">Profilinizi oluşturun</span><span class="en">Create your profile</span></h2><p class="ph"><span class="tr">Size uygun projeler çıktığında sizinle iletişime geçeriz ve burada size önerilen ilanları görürsünüz.</span><span class="en">We will contact you when a suitable project comes up, and you will see the roles suggested for you here.</span></p><form id="f-new" novalidate>
+<label><span><span class="tr">Ad soyad</span><span class="en">Full name</span></span><input name="full_name" required maxlength="120" autocomplete="name"></label>
+<label><span><span class="tr">Telefon (opsiyonel)</span><span class="en">Phone (optional)</span></span><input name="phone" maxlength="40" autocomplete="tel"></label>
+<label><span><span class="tr">Ülke</span><span class="en">Country</span></span><input name="country" maxlength="80" autocomplete="country-name"></label>
+<label><span><span class="tr">CV (PDF/DOC/DOCX, en çok 10 MB)</span><span class="en">CV (PDF/DOC/DOCX, max 10 MB)</span></span><input name="cv" type="file" accept=".pdf,.doc,.docx" required></label>
+<label class="ck"><input name="consent" type="checkbox"><span><span class="tr">Kişisel verilerimin ve CV'min aday havuzunda işlenmesine ve 12 ay saklanmasına açık rıza veriyorum. <a href="privacy.html#cv-havuzu">Aydınlatma metni</a></span><span class="en">I consent to my personal data and CV being processed and kept in the candidate pool for 12 months. <a href="privacy.html#cv-havuzu">Privacy notice</a></span></span></label>
+<button class="btn" type="submit"><span class="tr">Kaydı oluştur</span><span class="en">Create profile</span></button><p class="msg" id="m-new" role="status"></p></form></section>
 <div id="s-cand" hidden class="pw" style="padding:0;max-width:none">
 <section class="pc"><h2><span class="tr">Size önerilen ilanlar</span><span class="en">Roles suggested for you</span></h2><p class="ph"><span class="tr">İlgi bildirmeniz profilinizi müşteriyle paylaştığımız anlamına gelmez; paylaşmadan önce sizden ayrıca açık onay isteriz.</span><span class="en">Showing interest does not mean we share your profile with a client; we ask for your separate explicit consent first.</span></p><div id="roles"></div><p class="msg" id="m-roles" role="status"></p></section>
 <section class="pc" id="s-q" hidden><h2><span class="tr">Sorularımız</span><span class="en">Our questions</span></h2><p class="ph"><span class="tr">Sizi doğru fırsatlarla eşleştirmemize yardımcı olur.</span><span class="en">These help us match you with the right opportunities.</span></p><div id="qs"></div></section>
@@ -344,6 +349,20 @@ footer span{display:flex;flex-wrap:wrap;gap:24px}
    .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
    .then(function(x){btn.disabled=false;if(x.ok&&x.j.ok!==false){say('m-cv','uploaded',true);f.reset();loadFiles()}else say('m-cv',x.j&&x.j.error)})
    .catch(function(){btn.disabled=false;say('m-cv','network')})});
+
+ $('f-new').addEventListener('submit',function(e){e.preventDefault();var f=e.target,btn=f.querySelector('button');
+  var fl=f.cv.files[0];
+  if(!f.full_name.value.trim()){say('m-new','invalid_fields');return}
+  if(!fl){say('m-new','file_required');return}
+  if(!/\.(pdf|docx?)$/i.test(fl.name)){say('m-new','file_type_not_allowed');return}
+  if(fl.size>10*1024*1024){say('m-new','file_too_large');return}
+  if(!f.consent.checked){say('m-new','consent_required');return}
+  var fd=new FormData();fd.set('full_name',f.full_name.value.trim());fd.set('phone',f.phone.value);fd.set('country',f.country.value);fd.set('consent','true');fd.set('cv',fl,fl.name);
+  btn.disabled=true;
+  ensure().then(function(){return fetch(SB+'/functions/v1/submit-cv',{method:'POST',headers:{Authorization:'Bearer '+sess.access_token},body:fd})})
+   .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok,j:j}})})
+   .then(function(x){btn.disabled=false;if(x.ok&&x.j.ok!==false){f.reset();load()}else say('m-new',x.j&&x.j.error)})
+   .catch(function(){btn.disabled=false;say('m-new','network')})});
 
  $('export').addEventListener('click',function(){rpc('export_my_data').then(function(x){
   if(!x.ok){say('m-data','generic');return}
